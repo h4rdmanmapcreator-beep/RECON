@@ -14,9 +14,12 @@
   header label.file-btn:hover { background: #3578ea; }
   header input[type=file] { display: none; }
   header #status { color: #888; font-size: 12px; }
-  #summary { padding: 10px 16px; background: #191c22; border-bottom: 1px solid #2a2e36; display: none; }
-  #summary.show { display: block; }
-  #summary .map { font-size: 12px; color: #9aa0a8; }
+  #summary { padding: 10px 16px; background: #191c22; border-bottom: 1px solid #2a2e36; display: none; gap: 12px; }
+  #summary.show { display: flex; align-items: flex-start; }
+  #summary .text { flex: 1; min-width: 0; }
+  #summary .map { font-size: 12px; color: #9aa0a8; word-break: break-word; }
+  #map-preview { display: none; flex-shrink: 0; }
+  #map-preview img { width: 160px; height: 160px; object-fit: cover; border-radius: 4px; border: 1px solid #2a2e36; image-rendering: pixelated; background: #0d0f12; }
   #players { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
   .player-chip { padding: 3px 8px; border-radius: 3px; font-size: 12px; background: #23272f; border-left: 4px solid #555; }
   #filters { padding: 8px 16px; background: #16181c; border-bottom: 1px solid #2a2e36; display: none; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 12px; }
@@ -47,8 +50,13 @@
   <span id="status"></span>
 </header>
 <div id="summary">
-  <div class="map" id="map-info"></div>
-  <div id="players"></div>
+  <div class="text">
+    <div class="map" id="map-info"></div>
+    <div id="players"></div>
+  </div>
+  <div id="map-preview" title="Loaded from your local Documents\Command and Conquer Generals Zero Hour Data\Maps folder">
+    <img id="map-preview-img" alt="map preview">
+  </div>
 </div>
 <div id="filters">
   <label><input type="checkbox" id="hide-noise" checked> Hide noise</label>
@@ -174,6 +182,36 @@ function fmtArgs(chunk) {
   } catch { return ''; }
 }
 
+// mapNameFromPath extracts the folder/file basename from a replay's
+// header.metadata.mapPath. The path may use \ or /, may or may not end
+// in .map, and may include surrounding directories.
+//
+//   "Maps\Tournament Desert\Tournament Desert.map" -> "Tournament Desert"
+//   "maps/tournament island"                       -> "tournament island"
+function mapNameFromPath(p) {
+  if (!p) return '';
+  let s = p.replace(/\\/g, '/').replace(/\.map$/i, '');
+  const i = s.lastIndexOf('/');
+  return i >= 0 ? s.slice(i + 1) : s;
+}
+
+// loadMapPreview asks the server whether a local .tga preview exists
+// for this map (in Documents\...\Maps\<name>\<name>.tga). Hides the
+// preview slot on any failure so unknown/missing maps don't show a
+// broken image.
+function loadMapPreview(mapPath) {
+  const name = mapNameFromPath(mapPath);
+  const slot = $('map-preview');
+  const img = $('map-preview-img');
+  slot.style.display = 'none';
+  img.removeAttribute('src');
+  if (!name) return;
+  const url = '/map/preview?name=' + encodeURIComponent(name);
+  img.onload = () => { slot.style.display = 'block'; };
+  img.onerror = () => { slot.style.display = 'none'; };
+  img.src = url;
+}
+
 function renderSummary() {
   if (!replay) return;
   const h = replay.header || {};
@@ -181,6 +219,7 @@ function renderSummary() {
   const frames = h.frameCount || 0;
   const dur = frames ? ` · ${fmtTime(frames)}` : '';
   $('map-info').textContent = `${md.mapPath || '?'}${dur}`;
+  loadMapPreview(md.mapPath || '');
   const players = (replay.summary || []).filter(p => p && p.name);
   const pf = $('player-filter');
   pf.innerHTML = '<option value="">All players</option>';

@@ -10,22 +10,27 @@
 package main
 
 import (
+	"bytes"
 	"embed"
 	"encoding/json"
 	"flag"
 	"fmt"
+	"image/png"
 	"io/fs"
 	"net"
 	"net/http"
 	"os"
 	"os/exec"
+	"path"
 	"path/filepath"
 	"runtime"
+	"strings"
 
 	inidata "github.com/bill-rich/cncstats/Data"
 	"github.com/bill-rich/cncstats/pkg/bitparse"
 	"github.com/bill-rich/cncstats/pkg/iniparse"
 	"github.com/bill-rich/cncstats/pkg/zhreplay"
+	"github.com/ftrvxmtrx/tga"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -83,6 +88,7 @@ func main() {
 	mux.HandleFunc("/parse", func(w http.ResponseWriter, r *http.Request) {
 		handleParse(w, r, obj, pow, up, col)
 	})
+	mux.HandleFunc("/map/preview", handleMapPreview)
 
 	l, err := net.Listen("tcp", *addr)
 	if err != nil {
@@ -148,6 +154,120 @@ func handleParse(w http.ResponseWriter, r *http.Request, obj *iniparse.ObjectSto
 	if err := json.NewEncoder(w).Encode(v2); err != nil {
 		log.WithError(err).Error("encode response")
 	}
+}
+
+// handleMapPreview returns a PNG-encoded preview of the .tga that lives
+// next to the user's local copy of the map (in their Documents tree).
+// The browser can't render .tga directly, so we decode and re-encode
+// here. Returns 404 if the map folder isn't present locally — that's
+// the normal case for maps the user never downloaded.
+func handleMapPreview(w http.ResponseWriter, r *http.Request) {
+	name := strings.TrimSpace(r.URL.Query().Get("name"))
+	// We deliberately keep an inner trailing space if the user sent one:
+	// some custom maps have folder names like "[rank] vendetta zh v1 "
+	// with a trailing space that is part of the actual directory name.
+	// Strip leading/trailing whitespace introduced by URL handling but
+	// re-attach a single trailing space if the raw query indicates one.
+	if raw := r.URL.Query().Get("name"); strings.HasSuffix(raw, " ") && !strings.HasSuffix(name, " ") {
+		name += " "
+	}
+	if name == "" {
+		http.Error(w, "name query param required", http.StatusBadRequest)
+		return
+	}
+	tgaPath, err := findMapTGA(name)
+	if err != nil {
+		http.NotFound(w, r)
+		return
+	}
+
+	f, err := os.Open(tgaPath)
+	if err != nil {
+		log.WithError(err).WithField("path", tgaPath).Warn("could not open map preview")
+		http.NotFound(w, r)
+		return
+	}
+	defer f.Close()
+
+	img, err := tga.Decode(f)
+	if err != nil {
+		log.WithError(err).WithField("path", tgaPath).Warn("could not decode tga")
+		http.Error(w, "tga decode failed: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	var buf bytes.Buffer
+	if err := png.Encode(&buf, img); err != nil {
+		log.WithError(err).Error("png encode failed")
+		http.Error(w, "png encode failed", http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "image/png")
+	w.Header().Set("Cache-Control", "public, max-age=3600")
+	_, _ = w.Write(buf.Bytes())
+}
+
+// userMapsDir returns the canonical user maps directory on Windows.
+// On other OSes it returns the closest equivalent under the home dir
+// so the code at least compiles; map previews are realistically a
+// Windows-only feature since ZH is a Windows game.
+func userMapsDir() (string, error) {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return "", err
+	}
+	return filepath.Join(home, "Documents", "Command and Conquer Generals Zero Hour Data", "Maps"), nil
+}
+
+// findMapTGA looks for the .tga preview of a map by trying the most
+// common layouts. The map name is the folder name as it appears on disk
+// (which is usually the same as the .map file basename). Returns the
+// absolute path to the .tga or an error if nothing matched.
+func findMapTGA(name string) (string, error) {
+	maps, err := userMapsDir()
+	if err != nil {
+		return "", err
+	}
+	// Reject obvious path-escape attempts. The map name is supposed to
+	// be just a folder name, never a path with separators.
+	if strings.ContainsAny(name, `\/`) || strings.Contains(name, "..") {
+		return "", fmt.Errorf("invalid map name")
+	}
+
+	candidates := []string{
+		filepath.Join(maps, name, name+".tga"),
+		filepath.Join(maps, name, name+".TGA"),
+		filepath.Join(maps, name+".tga"),
+	}
+	for _, c := range candidates {
+		if st, err := os.Stat(c); err == nil && !st.IsDir() {
+			return c, nil
+		}
+	}
+	return "", fmt.Errorf("no preview found for %q", name)
+}
+
+// mapNameFromPath extracts the folder/basename of a map given a value
+// from the replay header's MapPath field. The header value can be any
+// of:
+//
+//	Maps\Tournament Desert\Tournament Desert.map  -> "Tournament Desert"
+//	maps/tournament island                        -> "tournament island"
+//	[rank] vendetta zh v1                         -> "[rank] vendetta zh v1"
+//
+// Currently unused on the server (the client extracts and passes the
+// name directly) but kept here for documentation and future use.
+var _ = mapNameFromPath
+
+func mapNameFromPath(mapPath string) string {
+	p := strings.ReplaceAll(mapPath, "\\", "/")
+	p = strings.TrimSuffix(p, ".map")
+	p = strings.TrimSuffix(p, ".MAP")
+	base := path.Base(p)
+	if base == "" || base == "." || base == "/" {
+		return ""
+	}
+	return base
 }
 
 // setupLogFile redirects logrus to a file next to the executable so
