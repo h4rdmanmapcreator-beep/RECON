@@ -6,22 +6,26 @@ type Object interface {
 }
 
 type Unit struct {
-	Name string
-	Cost int
+	Name        string
+	DisplayName string `json:",omitempty"`
+	Cost        int
 }
 
 type Building struct {
-	Name string
-	Cost int
+	Name        string
+	DisplayName string `json:",omitempty"`
+	Cost        int
 }
 
 type Power struct {
-	Name string
+	Name        string
+	DisplayName string `json:",omitempty"`
 }
 
 type Upgrade struct {
-	Name string
-	Cost int
+	Name        string
+	DisplayName string `json:",omitempty"`
+	Cost        int
 }
 
 type ObjectSummary struct {

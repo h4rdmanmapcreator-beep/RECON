@@ -1,1 +1,5 @@
 .idea
+
+# Built GUI binary and its runtime log
+cncstats-gui.exe
+cncstats-gui.log

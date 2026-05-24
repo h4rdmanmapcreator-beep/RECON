@@ -2,8 +2,10 @@ package iniparse
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"io"
+	"io/fs"
 	"os"
 	"strconv"
 	"strings"
@@ -26,9 +28,10 @@ type ObjectStore struct {
 }
 
 type Object struct {
-	Name string
-	Cost int
-	Type ObjectType
+	Name        string
+	DisplayName string // Stripped form of "DisplayName = OBJECT:Crusader" (e.g. "Crusader"). Empty if absent.
+	Cost        int
+	Type        ObjectType
 }
 
 type UpgradeStore struct {
@@ -36,8 +39,9 @@ type UpgradeStore struct {
 }
 
 type Upgrade struct {
-	Name string
-	Cost int
+	Name        string
+	DisplayName string
+	Cost        int
 }
 
 type PowerStore struct {
@@ -45,7 +49,8 @@ type PowerStore struct {
 }
 
 type Power struct {
-	Name string
+	Name        string
+	DisplayName string
 }
 
 type ColorStore struct {
@@ -77,6 +82,7 @@ var IniKey = []string{
 	"End",
 	"  BuildCost",
 	"  KindOf",
+	"  DisplayName",
 	"Upgrade",
 	"SpecialPower",
 	"MultiplayerColor",
@@ -89,11 +95,19 @@ func NewObjectStore(dir string) (*ObjectStore, error) {
 	if dir == "" {
 		return nil, fmt.Errorf("directory path cannot be empty")
 	}
-	objectStore := &ObjectStore{
-		Object: []Object{},
+	return NewObjectStoreFS(os.DirFS(dir))
+}
+
+// NewObjectStoreFS builds an ObjectStore from any fs.FS rooted at a
+// directory that contains an Object/ subdirectory (e.g. an os.DirFS or
+// an embed.FS view). The caller can use fs.Sub to scope to the right
+// subtree before passing it in.
+func NewObjectStoreFS(fsys fs.FS) (*ObjectStore, error) {
+	objectStore := &ObjectStore{Object: []Object{}}
+	if err := objectStore.loadObjectsFS(fsys); err != nil {
+		return objectStore, err
 	}
-	err := objectStore.loadObjects(dir)
-	return objectStore, err
+	return objectStore, nil
 }
 
 func (o *ObjectStore) GetObject(i int) (*Object, error) {
@@ -107,14 +121,17 @@ func (o *ObjectStore) GetObject(i int) (*Object, error) {
 	return &o.Object[index], nil
 }
 
-func (o *ObjectStore) loadObjects(dir string) error {
-	dirItems, err := os.ReadDir(dir + "/Object/")
+func (o *ObjectStore) loadObjectsFS(fsys fs.FS) error {
+	dirItems, err := fs.ReadDir(fsys, "Object")
 	if err != nil {
 		return err
 	}
 
 	for _, dirItem := range dirItems {
-		file, err := os.Open(dir + "/Object/" + dirItem.Name())
+		if dirItem.IsDir() {
+			continue
+		}
+		file, err := fsys.Open("Object/" + dirItem.Name())
 		if err != nil {
 			return err
 		}
@@ -145,11 +162,17 @@ func NewPowerStore(dir string) (*PowerStore, error) {
 	if dir == "" {
 		return nil, fmt.Errorf("directory path cannot be empty")
 	}
-	powerStore := &PowerStore{
-		Power: []Power{},
+	return NewPowerStoreFS(os.DirFS(dir))
+}
+
+// NewPowerStoreFS builds a PowerStore by reading SpecialPower.ini from
+// the given fs.FS (rooted where SpecialPower.ini lives).
+func NewPowerStoreFS(fsys fs.FS) (*PowerStore, error) {
+	powerStore := &PowerStore{Power: []Power{}}
+	if err := powerStore.loadPowersFS(fsys); err != nil {
+		return powerStore, err
 	}
-	err := powerStore.loadPowers(dir)
-	return powerStore, err
+	return powerStore, nil
 }
 
 func (p *PowerStore) GetPower(i int) (*Power, error) {
@@ -163,8 +186,8 @@ func (p *PowerStore) GetPower(i int) (*Power, error) {
 	return &p.Power[index], nil
 }
 
-func (p *PowerStore) loadPowers(dir string) error {
-	file, err := os.Open(dir + "/SpecialPower.ini")
+func (p *PowerStore) loadPowersFS(fsys fs.FS) error {
+	file, err := fsys.Open("SpecialPower.ini")
 	if err != nil {
 		return err
 	}
@@ -189,6 +212,13 @@ func (p *PowerStore) parseFile(file io.Reader) error {
 			power = &Power{
 				Name: name,
 			}
+		case "DisplayName":
+			if power == nil {
+				break
+			}
+			if dn := parseDisplayNameFromLine(line); dn != "" {
+				power.DisplayName = dn
+			}
 		case "End":
 		default:
 		}
@@ -203,11 +233,17 @@ func NewUpgradeStore(dir string) (*UpgradeStore, error) {
 	if dir == "" {
 		return nil, fmt.Errorf("directory path cannot be empty")
 	}
-	upgradeStore := &UpgradeStore{
-		Upgrade: []Upgrade{},
+	return NewUpgradeStoreFS(os.DirFS(dir))
+}
+
+// NewUpgradeStoreFS builds an UpgradeStore by reading Upgrade.ini from
+// the given fs.FS (rooted where Upgrade.ini lives).
+func NewUpgradeStoreFS(fsys fs.FS) (*UpgradeStore, error) {
+	upgradeStore := &UpgradeStore{Upgrade: []Upgrade{}}
+	if err := upgradeStore.loadUpgradesFS(fsys); err != nil {
+		return upgradeStore, err
 	}
-	err := upgradeStore.loadUpgrades(dir)
-	return upgradeStore, err
+	return upgradeStore, nil
 }
 
 func (u *UpgradeStore) GetUpgrade(i int) (*Upgrade, error) {
@@ -221,8 +257,8 @@ func (u *UpgradeStore) GetUpgrade(i int) (*Upgrade, error) {
 	return &u.Upgrade[i-UpgradeStoreOffset], nil
 }
 
-func (u *UpgradeStore) loadUpgrades(dir string) error {
-	file, err := os.Open(dir + "/Upgrade.ini")
+func (u *UpgradeStore) loadUpgradesFS(fsys fs.FS) error {
+	file, err := fsys.Open("Upgrade.ini")
 	if err != nil {
 		return err
 	}
@@ -256,6 +292,13 @@ func (u *UpgradeStore) parseFile(file io.Reader) error {
 				return err
 			}
 			upgrade.Cost = cost
+		case "DisplayName":
+			if upgrade == nil {
+				break
+			}
+			if dn := parseDisplayNameFromLine(line); dn != "" {
+				upgrade.DisplayName = dn
+			}
 		case "End":
 		default:
 		}
@@ -279,6 +322,28 @@ func parseCostFromLine(line string) (int, error) {
 		return 0, fmt.Errorf("invalid cost value: %w", err)
 	}
 	return cost, nil
+}
+
+// parseDisplayNameFromLine extracts the human-facing label from a line
+// like "  DisplayName = OBJECT:Crusader". It strips the "OBJECT:" /
+// "UPGRADE:" / "CONTROLBAR:" namespace prefix that the game uses to look
+// the string up in a CSF/STR file, leaving just "Crusader". Returns ""
+// if the line has no usable value.
+func parseDisplayNameFromLine(line string) string {
+	parts := strings.SplitN(line, "=", 2)
+	if len(parts) < 2 {
+		return ""
+	}
+	value := strings.SplitN(parts[1], ";", 2)[0] // strip inline comments
+	value = strings.TrimSpace(strings.ReplaceAll(value, "\r", ""))
+	if value == "" {
+		return ""
+	}
+	// Drop the "NAMESPACE:" prefix used to look up CSF/STR entries.
+	if i := strings.Index(value, ":"); i >= 0 && i < len(value)-1 {
+		value = value[i+1:]
+	}
+	return value
 }
 
 // parseNameFromLine extracts the name from an Object/Upgrade/SpecialPower line
@@ -371,6 +436,13 @@ func (o *ObjectStore) parseFile(file io.Reader) error {
 			}
 			flags := parseKindOfFromLine(line)
 			object.Type = classifyObject(flags)
+		case "DisplayName":
+			if object == nil {
+				break
+			}
+			if dn := parseDisplayNameFromLine(line); dn != "" {
+				object.DisplayName = dn
+			}
 		case "End":
 		default:
 		}
@@ -385,11 +457,17 @@ func NewColorStore(dir string) (*ColorStore, error) {
 	if dir == "" {
 		return nil, fmt.Errorf("directory path cannot be empty")
 	}
-	colorStore := &ColorStore{
-		Color: []MultiplayerColor{},
+	return NewColorStoreFS(os.DirFS(dir))
+}
+
+// NewColorStoreFS builds a ColorStore by reading multiplayer.ini (and
+// optionally ZuluColors.ini) from the given fs.FS.
+func NewColorStoreFS(fsys fs.FS) (*ColorStore, error) {
+	colorStore := &ColorStore{Color: []MultiplayerColor{}}
+	if err := colorStore.loadColorsFS(fsys); err != nil {
+		return colorStore, err
 	}
-	err := colorStore.loadColors(dir)
-	return colorStore, err
+	return colorStore, nil
 }
 
 func (c *ColorStore) GetColor(i int) (*MultiplayerColor, error) {
@@ -411,17 +489,17 @@ func (c *ColorStore) GetColorName(i int) (string, error) {
 	return color.Name, nil
 }
 
-func (c *ColorStore) loadColors(dir string) error {
-	if err := c.loadColorFile(dir+"/multiplayer.ini", true); err != nil {
+func (c *ColorStore) loadColorsFS(fsys fs.FS) error {
+	if err := c.loadColorFileFS(fsys, "multiplayer.ini", true); err != nil {
 		return err
 	}
-	return c.loadColorFile(dir+"/ZuluColors.ini", false)
+	return c.loadColorFileFS(fsys, "ZuluColors.ini", false)
 }
 
-func (c *ColorStore) loadColorFile(path string, required bool) error {
-	file, err := os.Open(path)
+func (c *ColorStore) loadColorFileFS(fsys fs.FS, name string, required bool) error {
+	file, err := fsys.Open(name)
 	if err != nil {
-		if !required && os.IsNotExist(err) {
+		if !required && (errors.Is(err, fs.ErrNotExist) || os.IsNotExist(err)) {
 			return nil
 		}
 		return err

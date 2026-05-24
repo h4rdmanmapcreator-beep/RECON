@@ -397,8 +397,9 @@ func (c *BodyChunk) setUnitDetails(objectStore *iniparse.ObjectStore) {
 	if arg, ok := c.Arguments[0].(int); ok {
 		if newObject, err := objectStore.GetObject(arg); err == nil && newObject != nil {
 			c.Details = &object.Unit{
-				Name: newObject.Name,
-				Cost: newObject.Cost,
+				Name:        newObject.Name,
+				DisplayName: newObject.DisplayName,
+				Cost:        newObject.Cost,
 			}
 		}
 	}
@@ -412,8 +413,9 @@ func (c *BodyChunk) setBuildingDetails(objectStore *iniparse.ObjectStore) {
 	if arg, ok := c.Arguments[0].(int); ok {
 		if newObject, err := objectStore.GetObject(arg); err == nil && newObject != nil {
 			c.Details = &object.Building{
-				Name: newObject.Name,
-				Cost: newObject.Cost,
+				Name:        newObject.Name,
+				DisplayName: newObject.DisplayName,
+				Cost:        newObject.Cost,
 			}
 		}
 	}
@@ -427,7 +429,8 @@ func (c *BodyChunk) setPowerDetails(powerStore *iniparse.PowerStore) {
 	if arg, ok := c.Arguments[0].(int); ok {
 		if newObject, err := powerStore.GetPower(arg); err == nil && newObject != nil {
 			c.Details = &object.Power{
-				Name: newObject.Name,
+				Name:        newObject.Name,
+				DisplayName: newObject.DisplayName,
 			}
 		}
 	}
@@ -446,8 +449,9 @@ func (c *BodyChunk) setUpgradeDetails(upgradeStore *iniparse.UpgradeStore) {
 	if arg, ok := c.Arguments[1].(int); ok {
 		if newObject, err := upgradeStore.GetUpgrade(arg); err == nil && newObject != nil {
 			c.Details = &object.Upgrade{
-				Name: newObject.Name,
-				Cost: newObject.Cost,
+				Name:        newObject.Name,
+				DisplayName: newObject.DisplayName,
+				Cost:        newObject.Cost,
 			}
 		} else {
 			c.Details = &object.Upgrade{Name: "dummy"}

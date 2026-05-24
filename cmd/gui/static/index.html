@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CnC Replay Browser</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; background: #16181c; color: #ddd; display: flex; flex-direction: column; }
+  header { padding: 10px 16px; background: #1f2228; border-bottom: 1px solid #2a2e36; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  header h1 { font-size: 14px; margin: 0; font-weight: 600; letter-spacing: 0.2px; }
+  header label.file-btn { padding: 5px 10px; background: #2d6cdf; border-radius: 4px; cursor: pointer; font-size: 12px; border: none; color: white; }
+  header label.file-btn:hover { background: #3578ea; }
+  header input[type=file] { display: none; }
+  header #status { color: #888; font-size: 12px; }
+  #summary { padding: 10px 16px; background: #191c22; border-bottom: 1px solid #2a2e36; display: none; }
+  #summary.show { display: block; }
+  #summary .map { font-size: 12px; color: #9aa0a8; }
+  #players { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+  .player-chip { padding: 3px 8px; border-radius: 3px; font-size: 12px; background: #23272f; border-left: 4px solid #555; }
+  #filters { padding: 8px 16px; background: #16181c; border-bottom: 1px solid #2a2e36; display: none; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 12px; }
+  #filters.show { display: flex; }
+  #filters input[type=search], #filters select { background: #23272f; color: #ddd; border: 1px solid #353a44; padding: 4px 8px; border-radius: 3px; font-size: 12px; }
+  #filters input[type=search] { width: 200px; }
+  #count { color: #9aa0a8; margin-left: auto; }
+  #events { flex: 1; overflow: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  thead th { position: sticky; top: 0; background: #23272f; z-index: 1; }
+  th { text-align: left; padding: 6px 12px; font-weight: 600; color: #9aa0a8; border-bottom: 1px solid #2a2e36; }
+  td { padding: 4px 12px; border-bottom: 1px solid #1c1f25; vertical-align: top; }
+  tr:hover td { background: #1c1f25; }
+  .time { color: #9aa0a8; font-family: ui-monospace, Consolas, monospace; font-variant-numeric: tabular-nums; width: 70px; }
+  .player { width: 180px; }
+  .order { width: 200px; color: #7dd3c0; }
+  .detail { width: 220px; color: #ffd479; font-family: ui-monospace, Consolas, monospace; }
+  .detail .cost { color: #9aa0a8; }
+  .args { color: #b9beca; font-family: ui-monospace, Consolas, monospace; font-size: 11px; word-break: break-word; }
+  .empty, .loading { padding: 40px; text-align: center; color: #6c727b; }
+  .err { color: #ff7676; }
+</style>
+</head>
+<body>
+<header>
+  <h1>CnC Replay Browser</h1>
+  <label class="file-btn">Open .rep<input type="file" id="file" accept=".rep"></label>
+  <span id="status"></span>
+</header>
+<div id="summary">
+  <div class="map" id="map-info"></div>
+  <div id="players"></div>
+</div>
+<div id="filters">
+  <label><input type="checkbox" id="hide-noise" checked> Hide noise</label>
+  <label><input type="checkbox" id="use-display-name" checked> Display name</label>
+  <label>Mode:
+    <select id="fps-mode">
+      <option value="30">Original ZH (30 fps)</option>
+      <option value="60">Generals Online (60 fps)</option>
+    </select>
+  </label>
+  <select id="player-filter"><option value="">All players</option></select>
+  <input type="search" id="search" placeholder="Search order name…">
+  <span id="count"></span>
+</div>
+<div id="events"><div class="empty">Open a .rep file to begin.</div></div>
+<script>
+const NOISE_ORDERS = new Set([
+  27,   // EndReplay
+  1001, // SetSelection
+  1002, // SelectAll
+  1003, // ClearSelection
+  1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, // SelectGroupN
+  1058, // unknown camera-ish
+  1068, // Move to (camera?)
+  1092, // checksum-ish
+  1095, // checksum
+  2000  // checksum
+]);
+const COLOR_MAP = {
+  Red:'#e3534b', Blue:'#3a8fe6', Green:'#4ec766', Yellow:'#e6c63a',
+  Orange:'#e6873a', Purple:'#a466e6', Cyan:'#3acaca', Pink:'#e68fb9',
+  Brown:'#9a6a3a', 'Metallic Grey':'#999', Silver:'#bbb', White:'#eee'
+};
+
+let replay = null;
+let lastFile = null;
+
+const $ = (id) => document.getElementById(id);
+
+$('file').addEventListener('change', (e) => {
+  const f = e.target.files[0];
+  if (f) parseFile(f);
+});
+
+async function parseFile(f) {
+  lastFile = f;
+  $('status').innerHTML = `parsing <em>${escapeHtml(f.name)}</em>…`;
+  $('events').innerHTML = '<div class="loading">Parsing replay…</div>';
+  const fd = new FormData();
+  fd.append('file', f);
+  try {
+    const r = await fetch('/parse', { method: 'POST', body: fd });
+    if (!r.ok) throw new Error((await r.text()) || `HTTP ${r.status}`);
+    replay = await r.json();
+    $('status').innerHTML = `<em>${escapeHtml(f.name)}</em>`;
+    renderSummary();
+    $('filters').classList.add('show');
+    render();
+  } catch (err) {
+    $('status').innerHTML = `<span class="err">error: ${escapeHtml(err.message)}</span>`;
+    $('events').innerHTML = '<div class="empty">Failed to parse.</div>';
+  }
+}
+
+$('hide-noise').addEventListener('change', render);
+$('use-display-name').addEventListener('change', render);
+$('player-filter').addEventListener('change', render);
+$('search').addEventListener('input', debounce(render, 150));
+$('fps-mode').addEventListener('change', () => { renderSummary(); render(); });
+
+function fmtTime(tc) {
+  // Original ZH runs at 30 logic frames/sec; Generals Online runs at 60.
+  // Replays from each will have ~2x the frame count for the same wall
+  // time, so the divisor has to match the source. Selected via the UI.
+  const fps = parseInt($('fps-mode').value, 10) || 30;
+  const totalSec = Math.round(tc / fps);
+  const m = Math.floor(totalSec / 60);
+  const s = totalSec % 60;
+  return `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+// fmtDetail renders the INI-resolved unit/building/power/upgrade name
+// (and cost when present) that the parser attached for CreateUnit/Build/
+// SpecialPower/Upgrade orders. The "Display name" toggle switches between
+// the friendly DisplayName (e.g. "Crusader") and the raw variable name
+// (e.g. "AmericaTankCrusader"); we fall back to the variable name when
+// no display name is available. Returns escaped HTML.
+function fmtDetail(chunk) {
+  const d = chunk.details;
+  if (!d || typeof d !== 'object') return '';
+  const varName = d.Name || d.name;
+  const displayName = d.DisplayName || d.displayName;
+  if (!varName && !displayName) return '';
+  const useDisplay = $('use-display-name').checked;
+  const name = useDisplay ? (displayName || varName) : (varName || displayName);
+  const cost = d.Cost || d.cost;
+  let html = escapeHtml(name);
+  if (cost && cost > 0) html += ` <span class="cost">$${cost}</span>`;
+  return html;
+}
+
+function fmtArgs(chunk) {
+  const arr = chunk.arguments;
+  if (!arr || !arr.length) return '';
+  try {
+    // Flatten: each arg group has args[]. Show inner values compactly.
+    const parts = [];
+    for (const g of arr) {
+      if (!g) continue;
+      const inner = Array.isArray(g.args) ? g.args : (Array.isArray(g.Args) ? g.Args : null);
+      if (!inner) { parts.push(JSON.stringify(g)); continue; }
+      const flat = inner.map(v => {
+        if (v && typeof v === 'object') {
+          if ('X' in v && 'Y' in v) return `(${v.X},${v.Y}${'Z' in v ? ','+v.Z : ''})`;
+          return JSON.stringify(v);
+        }
+        return String(v);
+      }).join(', ');
+      parts.push(flat);
+    }
+    const s = parts.join(' | ');
+    return s.length > 240 ? s.slice(0,240) + '…' : s;
+  } catch { return ''; }
+}
+
+function renderSummary() {
+  if (!replay) return;
+  const h = replay.header || {};
+  const md = h.metadata || {};
+  const frames = h.frameCount || 0;
+  const dur = frames ? ` · ${fmtTime(frames)}` : '';
+  $('map-info').textContent = `${md.mapPath || '?'}${dur}`;
+  const players = (replay.summary || []).filter(p => p && p.name);
+  const pf = $('player-filter');
+  pf.innerHTML = '<option value="">All players</option>';
+  const chips = $('players');
+  chips.innerHTML = '';
+  for (const p of players) {
+    const chip = document.createElement('div');
+    chip.className = 'player-chip';
+    chip.style.borderLeftColor = COLOR_MAP[p.color] || '#555';
+    const winMark = p.win ? ' · win' : '';
+    chip.textContent = `${p.name} · ${p.side || '?'}${winMark}`;
+    chips.appendChild(chip);
+    const opt = document.createElement('option');
+    opt.value = p.name;
+    opt.textContent = p.name;
+    pf.appendChild(opt);
+  }
+  $('summary').classList.add('show');
+}
+
+function render() {
+  if (!replay) return;
+  const hideNoise = $('hide-noise').checked;
+  const playerFilter = $('player-filter').value;
+  const search = $('search').value.trim().toLowerCase();
+  const body = replay.body || [];
+  const filtered = [];
+  for (const c of body) {
+    if (hideNoise && NOISE_ORDERS.has(c.orderCode)) continue;
+    if (playerFilter && c.playerName !== playerFilter) continue;
+    if (search && !(c.orderName || '').toLowerCase().includes(search)) continue;
+    filtered.push(c);
+  }
+  $('count').textContent = `${filtered.length.toLocaleString()} of ${body.length.toLocaleString()} events`;
+
+  const CAP = 10000;
+  const slice = filtered.length > CAP ? filtered.slice(0, CAP) : filtered;
+  const out = ['<table><thead><tr><th>Time</th><th>Player</th><th>Order</th><th>Detail</th><th>Args</th></tr></thead><tbody>'];
+  for (const c of slice) {
+    out.push(
+      '<tr><td class="time">', fmtTime(c.timeCode),
+      '</td><td class="player">', escapeHtml(c.playerName || ''),
+      '</td><td class="order">', escapeHtml(c.orderName || String(c.orderCode || '')),
+      '</td><td class="detail">', fmtDetail(c),
+      '</td><td class="args">', escapeHtml(fmtArgs(c)),
+      '</td></tr>'
+    );
+  }
+  if (filtered.length > CAP) {
+    out.push(`<tr><td colspan="5" class="empty">… ${(filtered.length - CAP).toLocaleString()} more events hidden (showing first ${CAP.toLocaleString()}). Narrow the filter.</td></tr>`);
+  }
+  out.push('</tbody></table>');
+  $('events').innerHTML = out.join('');
+}
+
+function escapeHtml(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function debounce(fn, ms) {
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+</script>
+</body>
+</html>
