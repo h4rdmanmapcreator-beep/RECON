@@ -65,12 +65,12 @@ func loadEmbeddedStores() (*iniparse.ObjectStore, *iniparse.PowerStore, *inipars
 
 func main() {
 	addr := flag.String("addr", "127.0.0.1:0", "HTTP listen address (port 0 = pick free port)")
-	webview := flag.Bool("webview", false, "Open in a native WebView2 window instead of the default browser (requires Edge WebView2 Runtime)")
+	webview := flag.Bool("webview", useWebViewByDefault, "Open in a native WebView2 window instead of the default browser (requires Edge WebView2 Runtime)")
 	noOpen := flag.Bool("no-open", false, "Don't open anything; just print the URL and wait")
 	flag.Parse()
 
 	setupLogFile()
-	log.Info("CnC Replay Browser starting")
+	log.Info("RECON starting")
 
 	obj, pow, up, col, err := loadEmbeddedStores()
 	if err != nil {
@@ -279,7 +279,7 @@ func setupLogFile() {
 	if err != nil {
 		return
 	}
-	logPath := filepath.Join(filepath.Dir(exe), "cncstats-gui.log")
+	logPath := filepath.Join(filepath.Dir(exe), "recon.log")
 	f, err := os.OpenFile(logPath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 	if err != nil {
 		log.WithError(err).Warn("could not open log file, keeping stderr")

@@ -1,0 +1,598 @@
+[
+  {
+    "id": "matchup_swm_superweapon_mirror",
+    "name": "swm (Superweapon Mirror):",
+    "faction": "mixed",
+    "allowed_generals": [
+      "superweapon"
+    ],
+    "scope": "matchup_note",
+    "source_section": "Matchup guides",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "terror"
+    ],
+    "matchup_targets": [
+      "mirror",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "patriot"
+      ],
+      "units": [
+        "ecm_tank",
+        "humvee",
+        "rpg_trooper",
+        "terrorist",
+        "troop_crawler"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "patriot"
+      ],
+      "units": [
+        "ecm_tank",
+        "humvee",
+        "rpg_trooper",
+        "terrorist",
+        "troop_crawler"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "swm (Superweapon Mirror): primarily a unit guide. SWG is weakest early (relies on Vees + EMP Patriots), strongest late (self-sustaining eco, cheap superweapons, Alpha Aurora). EMP Patriot micro: disable the units your Vees can't handle; one turret is enough; vulnerable to Avengers/ECM/terrorists/TC. Alpha Aurora: most destructive unit, fragile (2 RPG missiles kill it); use to push the enemy back and farm gen-points.",
+    "sequence_steps_normalized": [
+      "swm (Superweapon Mirror)"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_patriot",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "patriot",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_ecm_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "ecm_tank",
+          "ideal_before": 240,
+          "hard_before": 320,
+          "weight": 25,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_rpg_trooper",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "rpg_trooper",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 20,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_terrorist",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "terrorist",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_troop_crawler",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "troop_crawler",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 24,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "swm (Superweapon Mirror):",
+      "description": "primarily a unit guide. SWG is weakest early (relies on Vees + EMP Patriots), strongest late (self-sustaining eco, cheap superweapons, Alpha Aurora). EMP Patriot micro: disable the units your Vees can't handle; one turret is enough; vulnerable to Avengers/ECM/terrorists/TC. Alpha Aurora: most destructive unit, fragile (2 RPG missiles kill it); use to push the enemy back and farm gen-points.",
+      "line": "- **swm (Superweapon Mirror):** primarily a unit guide. SWG is weakest early (relies on Vees + EMP Patriots), strongest late (self-sustaining eco, cheap superweapons, Alpha Aurora). EMP Patriot micro: disable the units your Vees can't handle; one turret is enough; vulnerable to Avengers/ECM/terrorists/TC. Alpha Aurora: most destructive unit, fragile (2 RPG missiles kill it); use to push the enemy back and farm gen-points."
+    },
+    "notes": [
+      "Not a clean build order; kept as matchup/tactical note. Do not use as primary opening detection unless explicitly enabled."
+    ],
+    "enabled_for_detection": false
+  },
+  {
+    "id": "matchup_toxinnuke_gla_toxin_vs_china_nuke",
+    "name": "ToxinNuke (GLA Toxin vs China Nuke):",
+    "faction": "mixed",
+    "allowed_generals": [
+      "nuke",
+      "tank",
+      "toxin"
+    ],
+    "scope": "matchup_note",
+    "source_section": "Matchup guides",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "air",
+      "drop",
+      "helix",
+      "map_control",
+      "terror"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [
+        "dozer",
+        "ecm_tank",
+        "helix",
+        "marauder_tank",
+        "mig",
+        "overlord",
+        "quad_cannon",
+        "rpg_trooper",
+        "supply_truck",
+        "terrorist"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb",
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [
+        "dozer",
+        "ecm_tank",
+        "helix",
+        "jarmen_kell",
+        "marauder_tank",
+        "mig",
+        "overlord",
+        "quad_cannon",
+        "rpg_trooper",
+        "supply_truck",
+        "terrorist"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb",
+        "drop"
+      ]
+    },
+    "signature_source_text": "ToxinNuke (GLA Toxin vs China Nuke): matchup guide. Toxin's edge is the early game (Toxin Tunnels, Terrorists/car bombs on dozers/trucks, TechRPG/TechTerror, Marauders+RPG scrap synergy, Quads   Nuke's swing units: Tank-Hunter Helix, Dragon Drop, Overlord+ECM, Tactical-Nuke Migs.",
+    "sequence_steps_normalized": [
+      "ToxinNuke (GLA Toxin vs China Nuke)"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_ecm_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "ecm_tank",
+          "ideal_before": 240,
+          "hard_before": 320,
+          "weight": 25,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_marauder_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "marauder_tank",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 25,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_mig",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "mig",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_overlord",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "overlord",
+          "ideal_before": 235,
+          "hard_before": 310,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_quad_cannon",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "quad_cannon",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_rpg_trooper",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "rpg_trooper",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_truck",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "supply_truck",
+          "ideal_before": 60,
+          "hard_before": 100,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_terrorist",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "terrorist",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "ToxinNuke (GLA Toxin vs China Nuke):",
+      "description": "matchup guide. Toxin's edge is the early game (Toxin Tunnels, Terrorists/car bombs on dozers/trucks, TechRPG/TechTerror, Marauders+RPG scrap synergy, Quads vs Helix, Jarmen Kell snipes, Gamma Battle-Bus). Nuke's swing units: Tank-Hunter Helix, Dragon Drop, Overlord+ECM, Tactical-Nuke Migs.",
+      "line": "- **ToxinNuke (GLA Toxin vs China Nuke):** matchup guide. Toxin's edge is the early game (Toxin Tunnels, Terrorists/car bombs on dozers/trucks, TechRPG/TechTerror, Marauders+RPG scrap synergy, Quads vs Helix, Jarmen Kell snipes, Gamma Battle-Bus). Nuke's swing units: Tank-Hunter Helix, Dragon Drop, Overlord+ECM, Tactical-Nuke Migs."
+    },
+    "notes": [
+      "Not a clean build order; kept as matchup/tactical note. Do not use as primary opening detection unless explicitly enabled."
+    ],
+    "enabled_for_detection": false
+  },
+  {
+    "id": "matchup_usafvsinf_usa_air_force_vs_china_infantry",
+    "name": "USAFvsINF (USA Air Force vs China Infantry):",
+    "faction": "mixed",
+    "allowed_generals": [
+      "air_force",
+      "infantry",
+      "stealth"
+    ],
+    "scope": "matchup_note",
+    "source_section": "Matchup guides",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "air",
+      "forward_pressure",
+      "spam_rush"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "barracks"
+      ],
+      "units": [
+        "dozer",
+        "humvee",
+        "king_raptor",
+        "minigunner",
+        "missile_defender",
+        "ranger"
+      ],
+      "upgrades": [
+        "flashbangs",
+        "stealth_comanche"
+      ],
+      "behaviors": [
+        "dozer_scout",
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks"
+      ],
+      "units": [
+        "dozer",
+        "humvee",
+        "king_raptor",
+        "minigunner",
+        "missile_defender",
+        "ranger"
+      ],
+      "upgrades": [
+        "flashbangs",
+        "stealth_comanche"
+      ],
+      "behaviors": [
+        "dozer_scout",
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "USAFvsINF (USA Air Force vs China Infantry): matchup guide. Core units: King Raptors, flashbang Rangers, Humvees early; Pathfinders later (Lvl 3). KRs one-shot AOs (but watch stealth); MDvee cracks ATCs then Vees kill minigunners. Key rule: **if you scout a forward Rax rush, do NOT build an Airfield** — make your own forward Rax + MDs in buildings to kill his dozer/Rax.",
+    "sequence_steps_normalized": [
+      "USAFvsINF (USA Air Force vs China Infantry)"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_airfield",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_king_raptor",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "king_raptor",
+          "ideal_before": 160,
+          "hard_before": 220,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_minigunner",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "minigunner",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_missile_defender",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_ranger",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "ranger",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 16,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_flashbangs",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "flashbangs",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_stealth_comanche",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "stealth_comanche",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 16,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "USAFvsINF (USA Air Force vs China Infantry):",
+      "description": "matchup guide. Core units: King Raptors, flashbang Rangers, Humvees early; Pathfinders later (Lvl 3). KRs one-shot AOs (but watch stealth); MDvee cracks ATCs then Vees kill minigunners. Key rule: **if you scout a forward Rax rush, do NOT build an Airfield** — make your own forward Rax + MDs in buildings to kill his dozer/Rax.",
+      "line": "- **USAFvsINF (USA Air Force vs China Infantry):** matchup guide. Core units: King Raptors, flashbang Rangers, Humvees early; Pathfinders later (Lvl 3). KRs one-shot AOs (but watch stealth); MDvee cracks ATCs then Vees kill minigunners. Key rule: **if you scout a forward Rax rush, do NOT build an Airfield** — make your own forward Rax + MDs in buildings to kill his dozer/Rax."
+    },
+    "notes": [
+      "Not a clean build order; kept as matchup/tactical note. Do not use as primary opening detection unless explicitly enabled."
+    ],
+    "enabled_for_detection": false
+  }
+]

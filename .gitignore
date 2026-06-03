@@ -1,6 +1,11 @@
-.idea
+.idea/
+*.exe
+*.exe~
+*.log
 
-# Built GUI binary and its runtime log
-cncstats-gui.exe
-cncstats-gui.exe~
-cncstats-gui.log
+# graphify output (generated, not source)
+graphify-out/
+
+# TypeScript build output
+detector/dist/
+detector/node_modules/

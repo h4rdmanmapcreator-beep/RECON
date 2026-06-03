@@ -1,0 +1,4774 @@
+[
+  {
+    "id": "china_1v1_001_normal_dual_wf",
+    "name": "Normal Dual WF",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 1,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "dual_production",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "war_factory"
+      ],
+      "units": [
+        "supply_truck"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "bunker",
+        "war_factory"
+      ],
+      "units": [
+        "battlemaster",
+        "dragon_tank",
+        "helix",
+        "listening_outpost",
+        "supply_truck",
+        "troop_crawler"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Normal Dual WF DS. Most-played alongside Oilgrab; beats ~80% of strats. Keep trucks still.",
+    "sequence_steps_normalized": [
+      "Normal Dual WF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 155
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_truck",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "supply_truck",
+          "ideal_before": 60,
+          "hard_before": 100,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "war_factory",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Normal Dual WF",
+      "description": "DS. Most-played alongside Oilgrab; beats ~80% of strats. Keep trucks still. Vs GLA: more Dragon Tanks + BMs (or Bunker-Helix); vs USA: open Gat+LO+TC, tech faster.",
+      "line": "1. **Normal Dual WF** — DS. Most-played alongside Oilgrab; beats ~80% of strats. Keep trucks still. Vs GLA: more Dragon Tanks + BMs (or Bunker-Helix); vs USA: open Gat+LO+TC, tech faster."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_002_fast_wf_delayed_2nd_supply_wf",
+    "name": "Fast WF, delayed 2nd Supply/WF",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 2,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "troop_crawler"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "troop_crawler"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Fast WF, delayed 2nd Supply/WF DS. Faster WF offsets weaker early eco; good if USA will drop your supply. Fast TC counter.",
+    "sequence_steps_normalized": [
+      "Fast WF, delayed 2nd Supply/WF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_troop_crawler",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "troop_crawler",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 24,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Fast WF, delayed 2nd Supply/WF",
+      "description": "DS. Faster WF offsets weaker early eco; good if USA will drop your supply. Fast TC counter.",
+      "line": "2. **Fast WF, delayed 2nd Supply/WF** — DS. Faster WF offsets weaker early eco; good if USA will drop your supply. Fast TC counter."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_003_fast_2nd_wf_before_supply",
+    "name": "Fast 2nd WF before supply",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 3,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "map_control"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "dragon_tank",
+        "gattling_tank"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "tunnel_network",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "dragon_tank",
+        "gattling_tank"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Fast 2nd WF before supply DS. Like #2; earlier Gatt/Flamer to kill Chinooks/tunnels.",
+    "sequence_steps_normalized": [
+      "Fast 2nd WF before supply"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dragon_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dragon_tank",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_gattling_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "gattling_tank",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Fast 2nd WF before supply",
+      "description": "DS. Like #2; earlier Gatt/Flamer to kill Chinooks/tunnels.",
+      "line": "3. **Fast 2nd WF before supply** — DS. Like #2; earlier Gatt/Flamer to kill Chinooks/tunnels."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_004_oil_grab_safe_unsafe_middle",
+    "name": "Oil-Grab, safe/unsafe middle",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 4,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Oil-Grab, safe/unsafe middle DS. High variance; failing to get an oil kills your pressure.",
+    "sequence_steps_normalized": [
+      "Oil-Grab, safe/unsafe middle"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Oil-Grab, safe/unsafe middle",
+      "description": "DS. High variance; failing to get an oil kills your pressure.",
+      "line": "4. **Oil-Grab, safe/unsafe middle** — DS. High variance; failing to get an oil kills your pressure."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_005_fast_bunker_helix",
+    "name": "Fast Bunker-Helix",
+    "faction": "china",
+    "allowed_generals": [
+      "demolition",
+      "infantry",
+      "nuke",
+      "toxin",
+      "vanilla_china",
+      "vanilla_gla"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 5,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "helix"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "bunker"
+      ],
+      "units": [
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "bunker"
+      ],
+      "units": [
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Fast Bunker-Helix DS. Pressure with first Helix. Great",
+    "sequence_steps_normalized": [
+      "Fast Bunker-Helix"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_bunker",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "bunker",
+          "ideal_before": 115,
+          "hard_before": 180,
+          "weight": 12,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Fast Bunker-Helix",
+      "description": "DS. Pressure with first Helix. Great vs Demo/Tox/vGLA(Inf); ok vs Nuke/vChina.",
+      "line": "5. **Fast Bunker-Helix** — DS. Pressure with first Helix. Great vs Demo/Tox/vGLA(Inf); ok vs Nuke/vChina."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_006_wf_bunker_helix_save_dozer",
+    "name": "WF + Bunker-Helix, save dozer",
+    "faction": "china",
+    "allowed_generals": [
+      "air_force",
+      "nuke"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 6,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "helix"
+    ],
+    "matchup_targets": [
+      "mirror",
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "bunker",
+        "war_factory"
+      ],
+      "units": [
+        "dozer",
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "bunker",
+        "war_factory"
+      ],
+      "units": [
+        "dozer",
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "WF + Bunker-Helix, save dozer DS. WF-before-AF preferred. Common in Nuke mirrors (Helix dozer-hunt). Beats many China BOs.",
+    "sequence_steps_normalized": [
+      "WF + Bunker-Helix, save dozer"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_airfield",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_bunker",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "bunker",
+          "ideal_before": 115,
+          "hard_before": 180,
+          "weight": 12,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "WF + Bunker-Helix, save dozer",
+      "description": "DS. WF-before-AF preferred. Common in Nuke mirrors (Helix dozer-hunt). Beats many China BOs.",
+      "line": "6. **WF + Bunker-Helix, save dozer** — DS. WF-before-AF preferred. Common in Nuke mirrors (Helix dozer-hunt). Beats many China BOs."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_007_front_rax_wf_following_helix",
+    "name": "Front Rax + WF following Helix",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 7,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "forward_pressure",
+      "helix"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "war_factory"
+      ],
+      "units": [
+        "gattling_tank",
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "map_control"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "bunker",
+        "war_factory"
+      ],
+      "units": [
+        "gattling_tank",
+        "helix",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "map_control"
+      ]
+    },
+    "signature_source_text": "Front Rax + WF following Helix DS. Pressure USA/China (not GLA — flanks too open). Gat-Lix",
+    "sequence_steps_normalized": [
+      "Front Rax + WF following Helix"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_gattling_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "gattling_tank",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Front Rax + WF following Helix",
+      "description": "DS. Pressure USA/China (not GLA — flanks too open). Gat-Lix vs USA; Helix+Bunker+5 THs vs China.",
+      "line": "7. **Front Rax + WF following Helix** — DS. Pressure USA/China (not GLA — flanks too open). Gat-Lix vs USA; Helix+Bunker+5 THs vs China."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_008_front_rax_wf_following_tech",
+    "name": "Front Rax + WF following Tech",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 8,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Front Rax + WF following Tech DS. Forward-pressure variant of #7.",
+    "sequence_steps_normalized": [
+      "Front Rax + WF following Tech"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Front Rax + WF following Tech",
+      "description": "DS. Forward-pressure variant of #7. Not vs GLA.",
+      "line": "8. **Front Rax + WF following Tech** — DS. Forward-pressure variant of #7. Not vs GLA."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_009_front_supply_w_wf_rax_or_wf_rax",
+    "name": "Front-supply w/ WF, Rax, or WF+Rax",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 9,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "supply_truck"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "supply_center",
+        "tunnel_network",
+        "war_factory"
+      ],
+      "units": [
+        "supply_truck"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Front-supply w/ WF, Rax, or WF+Rax DS. Hurts GLA if unscouted; rush GLA eco, block tunnels; scout with first trucks.",
+    "sequence_steps_normalized": [
+      "Front-supply w/ WF, Rax, or WF+Rax"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_truck",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "supply_truck",
+          "ideal_before": 60,
+          "hard_before": 100,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Front-supply w/ WF, Rax, or WF+Rax",
+      "description": "DS. Hurts GLA if unscouted; rush GLA eco, block tunnels; scout with first trucks.",
+      "line": "9. **Front-supply w/ WF, Rax, or WF+Rax** — DS. Hurts GLA if unscouted; rush GLA eco, block tunnels; scout with first trucks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_010_flamer_drop_with_helix",
+    "name": "Flamer-Drop with Helix",
+    "faction": "china",
+    "allowed_generals": [
+      "air_force",
+      "tank"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 10,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "drop",
+      "dual_production",
+      "helix"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "dragon_tank",
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "dragon_tank",
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Flamer-Drop with Helix DS. Rare anti-GLA: AF at 2nd supply, drop a Dragon Tank (WF's 2nd unit) into GLA main.",
+    "sequence_steps_normalized": [
+      "Flamer-Drop with Helix"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 155
+        },
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dragon_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dragon_tank",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "war_factory",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Flamer-Drop with Helix",
+      "description": "DS. Rare anti-GLA: AF at 2nd supply, drop a Dragon Tank (WF's 2nd unit) into GLA main. Loses to a solid Dual-WF China.",
+      "line": "10. **Flamer-Drop with Helix** — DS. Rare anti-GLA: AF at 2nd supply, drop a Dragon Tank (WF's 2nd unit) into GLA main. Loses to a solid Dual-WF China."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_011_ccg_strat",
+    "name": "CCG-Strat",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 11,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "standard"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "CCG-Strat DS. Old Generals classic; pressure 2F with WF + Barracks. Works",
+    "sequence_steps_normalized": [
+      "CCG-Strat"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "CCG-Strat",
+      "description": "DS. Old Generals classic; pressure 2F with WF + Barracks. Works vs all 3 but is visible/counterable.",
+      "line": "11. **CCG-Strat** — DS. Old Generals classic; pressure 2F with WF + Barracks. Works vs all 3 but is visible/counterable."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_012_dual_gatt_helix",
+    "name": "Dual Gatt-Helix",
+    "faction": "china",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 12,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "dual_production",
+      "helix"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield"
+      ],
+      "units": [
+        "gattling_tank",
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield"
+      ],
+      "units": [
+        "gattling_tank",
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Dual Gatt-Helix DS. Surprise BO; two Gatt-Helixes. Sell one AF after first Helix.",
+    "sequence_steps_normalized": [
+      "Dual Gatt-Helix"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_gattling_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "gattling_tank",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual Gatt-Helix",
+      "description": "DS. Surprise BO; two Gatt-Helixes. Sell one AF after first Helix.",
+      "line": "12. **Dual Gatt-Helix** — DS. Surprise BO; two Gatt-Helixes. Sell one AF after first Helix."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_013_save_flanks_bunker_helix",
+    "name": "Save-Flanks + Bunker-Helix",
+    "faction": "china",
+    "allowed_generals": [
+      "nuke",
+      "tank"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 13,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "forward_pressure",
+      "helix"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "bunker"
+      ],
+      "units": [
+        "helix",
+        "nuke_cannon",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "map_control"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "bunker"
+      ],
+      "units": [
+        "helix",
+        "nuke_cannon",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "map_control"
+      ]
+    },
+    "signature_source_text": "Save-Flanks + Bunker-Helix DS. Invented   Middle garrisoned w/ 2 THs, one bunker per flank; tech to Nuke Cannon.",
+    "sequence_steps_normalized": [
+      "Save-Flanks + Bunker-Helix"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_bunker",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "bunker",
+          "ideal_before": 115,
+          "hard_before": 180,
+          "weight": 12,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_nuke_cannon",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "nuke_cannon",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_tank_hunter",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "tank_hunter",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 22,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Save-Flanks + Bunker-Helix",
+      "description": "DS. Invented vs Tank (no long range). Middle garrisoned w/ 2 THs, one bunker per flank; tech to Nuke Cannon.",
+      "line": "13. **Save-Flanks + Bunker-Helix** — DS. Invented vs Tank (no long range). Middle garrisoned w/ 2 THs, one bunker per flank; tech to Nuke Cannon."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_014_3_dozer_bo_vs_gla",
+    "name": "3-Dozer BO vs GLA",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 14,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "dozer"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "dozer_scout"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [
+        "dozer"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "dozer_scout"
+      ]
+    },
+    "signature_source_text": "3-Dozer BO vs GLA DS. First Dozer scouts tunnels. Rare; weak",
+    "sequence_steps_normalized": [
+      "3-Dozer BO vs GLA"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "3-Dozer BO vs GLA",
+      "description": "DS. First Dozer scouts tunnels. Rare; weak vs USA, no-go vs China.",
+      "line": "14. **3-Dozer BO vs GLA** — DS. First Dozer scouts tunnels. Rare; weak vs USA, no-go vs China."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_015_mined_mainflank",
+    "name": "Mined Mainflank",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 15,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "standard"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Mined Mainflank DS. Close the MF with a mined Rax.",
+    "sequence_steps_normalized": [
+      "Mined Mainflank"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Mined Mainflank",
+      "description": "DS. Close the MF with a mined Rax.",
+      "line": "15. **Mined Mainflank** — DS. Close the MF with a mined Rax."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_016_wf_airpower_gatlix_migs",
+    "name": "WF + Airpower (Gatlix/Migs)",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 16,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "helix"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "gattling_tank",
+        "helix",
+        "mig"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "gattling_tank",
+        "helix",
+        "mig",
+        "supply_truck"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "WF + Airpower (Gatlix/Migs) DS. Surprise: build on secondary supply so USA's drone misses the Gat-Lix.",
+    "sequence_steps_normalized": [
+      "WF + Airpower (Gatlix/Migs)"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_gattling_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "gattling_tank",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_mig",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "mig",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "WF + Airpower (Gatlix/Migs)",
+      "description": "DS. Surprise: build on secondary supply so USA's drone misses the Gat-Lix. Good vs GLA with Migs/trucks.",
+      "line": "16. **WF + Airpower (Gatlix/Migs)** — DS. Surprise: build on secondary supply so USA's drone misses the Gat-Lix. Good vs GLA with Migs/trucks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_017_front_wf_rush_w_2_wfs",
+    "name": "Front-WF-Rush w/ 2 WFs",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 17,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "dual_production",
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Front-WF-Rush w/ 2 WFs DS. Luck BO; spam tanks from 2 forward WFs.",
+    "sequence_steps_normalized": [
+      "Front-WF-Rush w/ 2 WFs"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 155
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "war_factory",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Front-WF-Rush w/ 2 WFs",
+      "description": "DS. Luck BO; spam tanks from 2 forward WFs. Not vs USA/GLA.",
+      "line": "17. **Front-WF-Rush w/ 2 WFs** — DS. Luck BO; spam tanks from 2 forward WFs. Not vs USA/GLA."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_018_back_fast_tech_rax_on_2nd_supply",
+    "name": "Back Fast-Tech + Rax on 2nd supply",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 18,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "fast_tech",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "supply_center"
+      ],
+      "units": [
+        "ecm_tank",
+        "lotus",
+        "overlord"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "supply_center"
+      ],
+      "units": [
+        "ecm_tank",
+        "lotus",
+        "overlord"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Back Fast-Tech + Rax on 2nd supply DS. Fast Overlord + Lotus, grab both oils. Gat+ECM",
+    "sequence_steps_normalized": [
+      "Back Fast-Tech + Rax on 2nd supply"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_ecm_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "ecm_tank",
+          "ideal_before": 240,
+          "hard_before": 320,
+          "weight": 25,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_lotus",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "lotus",
+          "ideal_before": 240,
+          "hard_before": 320,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_overlord",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "overlord",
+          "ideal_before": 235,
+          "hard_before": 310,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "capture_oil_signal",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 135,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        },
+        {
+          "id": "inferred_fast_tech_propaganda_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "propaganda_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "propaganda_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Back Fast-Tech + Rax on 2nd supply",
+      "description": "DS. Fast Overlord + Lotus, grab both oils. Gat+ECM vs USA.",
+      "line": "18. **Back Fast-Tech + Rax on 2nd supply** — DS. Fast Overlord + Lotus, grab both oils. Gat+ECM vs USA."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_019_rax_wf_af",
+    "name": "Rax + WF + AF",
+    "faction": "china",
+    "allowed_generals": [
+      "air_force",
+      "infantry"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 19,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "war_factory"
+      ],
+      "units": [
+        "attack_outpost",
+        "mig"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "war_factory"
+      ],
+      "units": [
+        "attack_outpost",
+        "mig"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Rax + WF + AF DS. Micro-heavy (inf+tanks+Migs); 2 Migs kill one AO.",
+    "sequence_steps_normalized": [
+      "Rax + WF + AF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_attack_outpost",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "attack_outpost",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_mig",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "mig",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Rax + WF + AF",
+      "description": "DS. Micro-heavy (inf+tanks+Migs); 2 Migs kill one AO. Good vs Infantry.",
+      "line": "19. **Rax + WF + AF** — DS. Micro-heavy (inf+tanks+Migs); 2 Migs kill one AO. Good vs Infantry."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_020_infantry_bo",
+    "name": "Infantry BO",
+    "faction": "china",
+    "allowed_generals": [
+      "infantry"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 20,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Infantry BO DS. China Infantry only. Garrison middle w/ 2 THs, secure 2F, pressure MF via first Outpost.",
+    "sequence_steps_normalized": [
+      "Infantry BO"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_tank_hunter",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "tank_hunter",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 22,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Infantry BO",
+      "description": "DS. China Infantry only. Garrison middle w/ 2 THs, secure 2F, pressure MF via first Outpost.",
+      "line": "20. **Infantry BO** — DS. China Infantry only. Garrison middle w/ 2 THs, secure 2F, pressure MF via first Outpost."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_021_wf_on_mf_near_enemy",
+    "name": "WF on MF near enemy",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 21,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "WF on MF near enemy DS. Front-WF pressure; direct",
+    "sequence_steps_normalized": [
+      "WF on MF near enemy"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "WF on MF near enemy",
+      "description": "DS. Front-WF pressure; direct counter to BOs like #6 (similar to CCG #11).",
+      "line": "21. **WF on MF near enemy** — DS. Front-WF pressure; direct counter to BOs like #6 (similar to CCG #11)."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_022_infantry_bo_2",
+    "name": "Infantry BO 2",
+    "faction": "china",
+    "allowed_generals": [
+      "infantry"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 22,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "standard"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "bunker",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "bunker",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Infantry BO 2 DS. Infantry   2nd supply safe w/ one bunker + infantry; main base spams Rax + WF.",
+    "sequence_steps_normalized": [
+      "Infantry BO 2"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_bunker",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "bunker",
+          "ideal_before": 115,
+          "hard_before": 180,
+          "weight": 12,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Infantry BO 2",
+      "description": "DS. Infantry vs most armies. 2nd supply safe w/ one bunker + infantry; main base spams Rax + WF.",
+      "line": "22. **Infantry BO 2** — DS. Infantry vs most armies. 2nd supply safe w/ one bunker + infantry; main base spams Rax + WF."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_023_infantry_bo_3_gunner_spam",
+    "name": "Infantry BO 3, Gunner-spam",
+    "faction": "china",
+    "allowed_generals": [
+      "infantry"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 23,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "standard"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "minigunner"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [
+        "attack_troop_crawler",
+        "chinook",
+        "minigunner"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Infantry BO 3, Gunner-spam DS.",
+    "sequence_steps_normalized": [
+      "Infantry BO 3, Gunner-spam"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_3_minigunner",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "minigunner",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 20,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Infantry BO 3, Gunner-spam",
+      "description": "DS. Vs USA only; one Minigunner per flank on guard near enemy supply to kill/annoy Chinooks; ATC at 2F adds pressure.",
+      "line": "23. **Infantry BO 3, Gunner-spam** — DS. Vs USA only; one Minigunner per flank on guard near enemy supply to kill/annoy Chinooks; ATC at 2F adds pressure."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_024_infantry_bo_4_front_rax_one_flank",
+    "name": "Infantry BO 4, Front-Rax one flank",
+    "faction": "china",
+    "allowed_generals": [
+      "infantry"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 24,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "bunker",
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "bunker",
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Infantry BO 4, Front-Rax one flank DS. Get a bunker up on enemy 2nd/main supply.",
+    "sequence_steps_normalized": [
+      "Infantry BO 4, Front-Rax one flank"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_bunker",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "bunker",
+          "ideal_before": 115,
+          "hard_before": 180,
+          "weight": 12,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Infantry BO 4, Front-Rax one flank",
+      "description": "DS. Get a bunker up on enemy 2nd/main supply.",
+      "line": "24. **Infantry BO 4, Front-Rax one flank** — DS. Get a bunker up on enemy 2nd/main supply."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_025_dual_wf_delayed_3rd_supply",
+    "name": "Dual-WF, delayed 3rd supply",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered China build orders (1on1)",
+    "source_order": 25,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "dual_production"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Dual-WF, delayed 3rd supply DS. Economic Dual-WF expanding to a third supply.",
+    "sequence_steps_normalized": [
+      "Dual-WF, delayed 3rd supply"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 155
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "war_factory",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual-WF, delayed 3rd supply",
+      "description": "DS. Economic Dual-WF expanding to a third supply.",
+      "line": "25. **Dual-WF, delayed 3rd supply** — DS. Economic Dual-WF expanding to a third supply."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_2v2_dual_wf",
+    "name": "Dual WF",
+    "faction": "china",
+    "allowed_generals": [
+      "air_force",
+      "infantry"
+    ],
+    "scope": "2v2",
+    "source_section": "China team (2v2) build orders",
+    "source_order": 1,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "air",
+      "dual_production",
+      "forward_pressure",
+      "helix"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Dual WF Dual WF (front-supply or back) · WF + AF · Front-Barracks (Inf strat) · Helix · WF + Helix. (On FE, USA takes the vehicle-closed right side; GLA/China take front-supply.)",
+    "sequence_steps_normalized": [
+      "Dual WF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 155
+        },
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "war_factory",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual WF",
+      "description": "Dual WF (front-supply or back) · WF + AF · Front-Barracks (Inf strat) · Helix · WF + Helix. (On FE, USA takes the vehicle-closed right side; GLA/China take front-supply.)",
+      "line": "Dual WF (front-supply or back) · WF + AF · Front-Barracks (Inf strat) · Helix · WF + Helix. (On FE, USA takes the vehicle-closed right side; GLA/China take front-supply.)"
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_dual_warfactory",
+    "name": "Dual Warfactory:",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "China Basic Strategy Guide (explicit sequences)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "dual_production"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "command_center",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "battlemaster",
+        "dozer",
+        "gattling_tank"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "sell_command_center"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "command_center",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "battlemaster",
+        "dozer",
+        "gattling_tank"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "sell_command_center"
+      ]
+    },
+    "signature_source_text": "Dual Warfactory: Dozer1 → Power. Dozer2 → a Supply → Supply Center. After Power, Dozer1 → other Supply → Supply Center. Sell CC (+$1000). Both dozers → a WF each when supplies done. First unit a Gattling from each WF to scout/hit supplies, then Gatt+BM force.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Dozer2",
+      "a Supply",
+      "Supply Center",
+      "Power, Dozer1",
+      "other Supply",
+      "Supply Center",
+      "Sell CC (+$1000)",
+      "Both dozers",
+      "a WF each when supplies done",
+      "First unit a Gattling from each WF to scout/hit supplies",
+      "Gatt+BM force."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 155
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_command_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "command_center",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_battlemaster",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "battlemaster",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_gattling_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "gattling_tank",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_sell_command_center",
+          "type": "exists_before",
+          "event": "sell_building",
+          "object": "command_center",
+          "ideal_before": 60,
+          "hard_before": 90,
+          "weight": 10,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "war_factory",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual Warfactory:",
+      "description": "Dozer1 → Power. Dozer2 → a Supply → Supply Center. After Power, Dozer1 → other Supply → Supply Center. Sell CC (+$1000). Both dozers → a WF each when supplies done. First unit a Gattling from each WF to scout/hit supplies, then Gatt+BM force.",
+      "line": "- **Dual Warfactory:** Dozer1 → Power. Dozer2 → a Supply → Supply Center. After Power, Dozer1 → other Supply → Supply Center. Sell CC (+$1000). Both dozers → a WF each when supplies done. First unit a Gattling from each WF to scout/hit supplies, then Gatt+BM force."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_gattling_tank_hunter",
+    "name": "Gattling/Tank Hunter:",
+    "faction": "china",
+    "allowed_generals": [
+      "infantry",
+      "tank",
+      "toxin"
+    ],
+    "scope": "1v1",
+    "source_section": "China Basic Strategy Guide (explicit sequences)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "dozer",
+        "gattling_tank",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "dozer",
+        "gattling_tank",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Gattling/Tank Hunter: Dozer1 → Power. Dozer2 → strategic point near enemy; build Supply (if supplies there) or Barracks. Dozer1 → Supply Center at base. Forward dozer → WF after its Rax/Supply. Continual Gatt + TH flow (THs kill tanks/buildings, Gatts kill infantry/air).",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Dozer2",
+      "strategic point near enemy",
+      "build Supply (if supplies there) or Barracks",
+      "Dozer1",
+      "Supply Center at base",
+      "Forward dozer",
+      "WF after its Rax/Supply",
+      "Continual Gatt + TH flow (THs kill tanks/buildings, Gatts kill infantry/air)",
+      "Weak vs Toxin."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_gattling_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "gattling_tank",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tank_hunter",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "tank_hunter",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 22,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Gattling/Tank Hunter:",
+      "description": "Dozer1 → Power. Dozer2 → strategic point near enemy; build Supply (if supplies there) or Barracks. Dozer1 → Supply Center at base. Forward dozer → WF after its Rax/Supply. Continual Gatt + TH flow (THs kill tanks/buildings, Gatts kill infantry/air). Weak vs Toxin.",
+      "line": "- **Gattling/Tank Hunter:** Dozer1 → Power. Dozer2 → strategic point near enemy; build Supply (if supplies there) or Barracks. Dozer1 → Supply Center at base. Forward dozer → WF after its Rax/Supply. Continual Gatt + TH flow (THs kill tanks/buildings, Gatts kill infantry/air). Weak vs Toxin."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_bunker_helix",
+    "name": "Bunker Helix:",
+    "faction": "china",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "China Basic Strategy Guide (explicit sequences)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "air",
+      "helix"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "bunker",
+        "command_center",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "dozer",
+        "helix",
+        "tank_hunter"
+      ],
+      "upgrades": [
+        "bunker_upgrade"
+      ],
+      "behaviors": [
+        "sell_command_center"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "bunker",
+        "command_center",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "dozer",
+        "helix",
+        "tank_hunter"
+      ],
+      "upgrades": [
+        "bunker_upgrade"
+      ],
+      "behaviors": [
+        "sell_command_center"
+      ]
+    },
+    "signature_source_text": "Bunker Helix: Dozer1 → Power. Dozer2 → nearest supply. After Power: Dozer2-supply → Supply Center; Dozer1 → Barracks. When Supply done → AF beside it; when Rax done → 5 THs, send that dozer to another supply. AF done → Helix + Bunker upgrade, load 5 THs. Save → WF. Sell CC for a fast WF. Ground support essential; watch AA.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Dozer2",
+      "nearest supply",
+      "Power: Dozer2-supply",
+      "Supply Center",
+      "Dozer1",
+      "Barracks",
+      "When Supply done",
+      "AF beside it",
+      "when Rax done",
+      "5 THs, send that dozer to another supply",
+      "AF done",
+      "Helix + Bunker upgrade, load 5 THs",
+      "Save",
+      "Sell CC for a fast WF",
+      "Ground support essential",
+      "watch AA."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_airfield",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_bunker",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "bunker",
+          "ideal_before": 115,
+          "hard_before": 180,
+          "weight": 12,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_command_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "command_center",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_5_tank_hunter",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "tank_hunter",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 22,
+          "count": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_bunker_upgrade",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "bunker_upgrade",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 14,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_sell_command_center",
+          "type": "exists_before",
+          "event": "sell_building",
+          "object": "command_center",
+          "ideal_before": 60,
+          "hard_before": 90,
+          "weight": 10,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Bunker Helix:",
+      "description": "Dozer1 → Power. Dozer2 → nearest supply. After Power: Dozer2-supply → Supply Center; Dozer1 → Barracks. When Supply done → AF beside it; when Rax done → 5 THs, send that dozer to another supply. AF done → Helix + Bunker upgrade, load 5 THs. Save → WF. Sell CC for a fast WF. Ground support essential; watch AA.",
+      "line": "- **Bunker Helix:** Dozer1 → Power. Dozer2 → nearest supply. After Power: Dozer2-supply → Supply Center; Dozer1 → Barracks. When Supply done → AF beside it; when Rax done → 5 THs, send that dozer to another supply. AF done → Helix + Bunker upgrade, load 5 THs. Save → WF. Sell CC for a fast WF. Ground support essential; watch AA."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_dual_war",
+    "name": "Dual War:",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Nuke Mirror (explicit approaches)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "air",
+      "dual_production",
+      "forward_pressure",
+      "helix"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "battlemaster",
+        "dozer",
+        "gattling_tank",
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "battlemaster",
+        "dozer",
+        "gattling_tank",
+        "helix"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Dual War: BM from each of 2 WFs — one middle, one flank. If you see his flank BM at the same time he likely went dual too → keep making BMs at his supplies, pick off dozers. No early units seen = he went Helix → make a Gatt from each WF down each flank + 2 more Gatts in your base corners to catch the Helix, then 2 more BMs.",
+    "sequence_steps_normalized": [
+      "BM from each of 2 WFs — one middle, one flank",
+      "If you see his flank BM at the same time he likely went dual too",
+      "keep making BMs at his supplies, pick off dozers",
+      "No early units seen = he went Helix",
+      "make a Gatt from each WF down each flank + 2 more Gatts in your base corners to catch the Helix",
+      "2 more BMs."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 155
+        },
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_battlemaster",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "battlemaster",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_gattling_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "gattling_tank",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_helix",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "war_factory",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual War:",
+      "description": "BM from each of 2 WFs — one middle, one flank. If you see his flank BM at the same time he likely went dual too → keep making BMs at his supplies, pick off dozers. No early units seen = he went Helix → make a Gatt from each WF down each flank + 2 more Gatts in your base corners to catch the Helix, then 2 more BMs.",
+      "line": "- **Dual War:** BM from each of 2 WFs — one middle, one flank. If you see his flank BM at the same time he likely went dual too → keep making BMs at his supplies, pick off dozers. No early units seen = he went Helix → make a Gatt from each WF down each flank + 2 more Gatts in your base corners to catch the Helix, then 2 more BMs."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_middle_supply_first_rax_fast_war_rax",
+    "name": "Middle (Supply-first / Rax / Fast-War→Rax):",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Nuke Mirror (explicit approaches)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "battlemaster",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "battlemaster",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Middle (Supply-first / Rax / Fast-War→Rax): rally-point check the middle; first unit BM from the middle WF, send in front of his Rax to kill THs before they garrison; garrison your THs in middle buildings closest to you; send a BM to your 2F where he'll try a 2nd WF.",
+    "sequence_steps_normalized": [
+      "Middle (Supply-first / Rax / Fast-War",
+      "Rax)"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_battlemaster",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "battlemaster",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tank_hunter",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "tank_hunter",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 22,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Middle (Supply-first / Rax / Fast-War→Rax):",
+      "description": "rally-point check the middle; first unit BM from the middle WF, send in front of his Rax to kill THs before they garrison; garrison your THs in middle buildings closest to you; send a BM to your 2F where he'll try a 2nd WF.",
+      "line": "- **Middle (Supply-first / Rax / Fast-War→Rax):** rally-point check the middle; first unit BM from the middle WF, send in front of his Rax to kill THs before they garrison; garrison your THs in middle buildings closest to you; send a BM to your 2F where he'll try a 2nd WF."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "china_1v1_war_helix_wf_first",
+    "name": "War+Helix (WF first):",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Nuke Mirror (explicit approaches)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "air",
+      "dual_production",
+      "forward_pressure",
+      "helix",
+      "oil_grab",
+      "spam_rush"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "war_factory"
+      ],
+      "units": [
+        "battlemaster",
+        "ecm_tank",
+        "gattling_tank",
+        "helix",
+        "listening_outpost",
+        "lotus",
+        "mig",
+        "overlord"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "war_factory"
+      ],
+      "units": [
+        "battlemaster",
+        "ecm_tank",
+        "gattling_tank",
+        "helix",
+        "listening_outpost",
+        "lotus",
+        "mig",
+        "overlord"
+      ],
+      "upgrades": [
+        "capture_building",
+        "subliminal_messaging"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "War+Helix (WF first): first BM middle or near-WF flank; tech after Helix; first post-tech unit = Lotus from Barracks → capture oils → spam Overlords/ECMs. Always Lotus first after teching; keep a MiG (if Helix) or Gatt/LO (if dual)",
+    "sequence_steps_normalized": [
+      "first BM middle or near-WF flank",
+      "tech after Helix",
+      "first post-tech unit = Lotus from Barracks",
+      "capture oils",
+      "spam Overlords/ECMs",
+      "Always Lotus first after teching",
+      "keep a MiG (if Helix) or Gatt/LO (if dual) vs enemy Lotus",
+      "buy Subliminal Messaging."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "helix",
+          "before": 260
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_battlemaster",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "battlemaster",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 28,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_ecm_tank",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "ecm_tank",
+          "ideal_before": 240,
+          "hard_before": 320,
+          "weight": 25,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_gattling_tank",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "gattling_tank",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 30,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_helix",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "helix",
+          "ideal_before": 170,
+          "hard_before": 240,
+          "weight": 40,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_listening_outpost",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "listening_outpost",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 24,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_lotus",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "lotus",
+          "ideal_before": 240,
+          "hard_before": 320,
+          "weight": 28,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_mig",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "mig",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 30,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_overlord",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "overlord",
+          "ideal_before": 235,
+          "hard_before": 310,
+          "weight": 35,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_dual_wf_contradiction",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 125,
+          "penalty": 25,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "helix",
+            "before": 280
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "War+Helix (WF first):",
+      "description": "first BM middle or near-WF flank; tech after Helix; first post-tech unit = Lotus from Barracks → capture oils → spam Overlords/ECMs. Always Lotus first after teching; keep a MiG (if Helix) or Gatt/LO (if dual) vs enemy Lotus; buy Subliminal Messaging.",
+      "line": "- **War+Helix (WF first):** first BM middle or near-WF flank; tech after Helix; first post-tech unit = Lotus from Barracks → capture oils → spam Overlords/ECMs. Always Lotus first after teching; keep a MiG (if Helix) or Gatt/LO (if dual) vs enemy Lotus; buy Subliminal Messaging."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "randomm_china_dual_warfac",
+    "name": "Dual Warfac:",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "random",
+    "source_section": "RandomM guide",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "dual_production"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "supply_truck"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "supply_truck"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb"
+      ]
+    },
+    "signature_source_text": "Dual Warfac: Dozer1 → Power; Dozer2 → a Supply (Dozer1 → another Supply after Power); both build Supply Centers (queue +1 truck each) then a WF each. Good vehicle count; weak to scouting/Car Bombs.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Dozer2",
+      "a Supply (Dozer1",
+      "another Supply after Power)",
+      "both build Supply Centers (queue +1 truck each) then a WF each",
+      "Good vehicle count",
+      "weak to scouting/Car Bombs."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 155
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_truck",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "supply_truck",
+          "ideal_before": 60,
+          "hard_before": 100,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "war_factory",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual Warfac:",
+      "description": "Dozer1 → Power; Dozer2 → a Supply (Dozer1 → another Supply after Power); both build Supply Centers (queue +1 truck each) then a WF each. Good vehicle count; weak to scouting/Car Bombs.",
+      "line": "- **China — Dual Warfac:** Dozer1 → Power; Dozer2 → a Supply (Dozer1 → another Supply after Power); both build Supply Centers (queue +1 truck each) then a WF each. Good vehicle count; weak to scouting/Car Bombs."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "randomm_china_middle",
+    "name": "Middle:",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "random",
+    "source_section": "RandomM guide",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "supply_truck",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb",
+        "map_control"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "supply_truck",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb",
+        "map_control"
+      ]
+    },
+    "signature_source_text": "Middle: Dozer1 → Power; Dozer2 → middle, builds Supply/Barracks there; Dozer1 → main Supply (+truck). Middle Rax/Supply done → 2 THs/trucks to kill Car Bombs; Dozer2 → WF in middle once a Supply is up; Dozer1 → secondary supply (+truck). Strong eco + middle control; weak to flank attacks.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Dozer2",
+      "middle, builds Supply/Barracks there",
+      "Dozer1",
+      "main Supply (+truck)",
+      "Middle Rax/Supply done",
+      "2 THs/trucks to kill Car Bombs",
+      "Dozer2",
+      "WF in middle once a Supply is up",
+      "Dozer1",
+      "secondary supply (+truck)",
+      "Strong eco + middle control",
+      "weak to flank attacks."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_truck",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "supply_truck",
+          "ideal_before": 60,
+          "hard_before": 100,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_tank_hunter",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "tank_hunter",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 22,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Middle:",
+      "description": "Dozer1 → Power; Dozer2 → middle, builds Supply/Barracks there; Dozer1 → main Supply (+truck). Middle Rax/Supply done → 2 THs/trucks to kill Car Bombs; Dozer2 → WF in middle once a Supply is up; Dozer1 → secondary supply (+truck). Strong eco + middle control; weak to flank attacks.",
+      "line": "- **China — Middle:** Dozer1 → Power; Dozer2 → middle, builds Supply/Barracks there; Dozer1 → main Supply (+truck). Middle Rax/Supply done → 2 THs/trucks to kill Car Bombs; Dozer2 → WF in middle once a Supply is up; Dozer1 → secondary supply (+truck). Strong eco + middle control; weak to flank attacks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "randomm_china_derrick_grab",
+    "name": "Derrick Grab:",
+    "faction": "china",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "random",
+    "source_section": "RandomM guide",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "forward_pressure",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "command_center",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "red_guard",
+        "supply_truck",
+        "tank_hunter"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "car_bomb",
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "command_center",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "red_guard",
+        "supply_truck",
+        "tank_hunter"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "car_bomb",
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Derrick Grab: Dozer1 → Power; Dozer2 → Rax between CC and middle; Dozer1 → main Supply (+truck). Rax → 2 THs + Red Guard + Capture upgrade; Dozer2 → secondary supply; Dozer1 → WF when main supply done. THs to middle (kill Car Bombs), one Red Guard to each derrick. ~$2000 boost if it works.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Dozer2",
+      "Rax between CC and middle",
+      "Dozer1",
+      "main Supply (+truck)",
+      "Rax",
+      "2 THs + Red Guard + Capture upgrade",
+      "Dozer2",
+      "secondary supply",
+      "Dozer1",
+      "WF when main supply done",
+      "THs to middle (kill Car Bombs), one Red Guard to each derrick",
+      "~$2000 boost if it works."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_command_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "command_center",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_red_guard",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "red_guard",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 14,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_truck",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "supply_truck",
+          "ideal_before": 60,
+          "hard_before": 100,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_tank_hunter",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "tank_hunter",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 22,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Derrick Grab:",
+      "description": "Dozer1 → Power; Dozer2 → Rax between CC and middle; Dozer1 → main Supply (+truck). Rax → 2 THs + Red Guard + Capture upgrade; Dozer2 → secondary supply; Dozer1 → WF when main supply done. THs to middle (kill Car Bombs), one Red Guard to each derrick. ~$2000 boost if it works.",
+      "line": "- **China — Derrick Grab:** Dozer1 → Power; Dozer2 → Rax between CC and middle; Dozer1 → main Supply (+truck). Rax → 2 THs + Red Guard + Capture upgrade; Dozer2 → secondary supply; Dozer1 → WF when main supply done. THs to middle (kill Car Bombs), one Red Guard to each derrick. ~$2000 boost if it works."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  }
+]

@@ -1,0 +1,3664 @@
+[
+  {
+    "id": "gla_1v1_001_front_tunnel_near_enemy_main_supply",
+    "name": "Front tunnel near enemy main-supply",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 1,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure",
+      "map_control",
+      "oil_grab",
+      "terror"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "technical"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "forward_build",
+        "map_control",
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "technical"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "forward_build",
+        "map_control",
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Front tunnel near enemy main-supply DS. The basic GLA BO; tunnels give full map vision. Watch your own main-supply tunnel (one Dragon kills it). Pair with a first Tech harass or oil-grab.",
+    "sequence_steps_normalized": [
+      "Front tunnel near enemy main-supply"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_technical",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "technical",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "technical",
+            "before": 220
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Front tunnel near enemy main-supply",
+      "description": "DS. The basic GLA BO; tunnels give full map vision. Watch your own main-supply tunnel (one Dragon kills it). Pair with a first Tech harass or oil-grab.",
+      "line": "1. **Front tunnel near enemy main-supply** — DS. The basic GLA BO; tunnels give full map vision. Watch your own main-supply tunnel (one Dragon kills it). Pair with a first Tech harass or oil-grab."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_002_front_tunnel_near_enemy_2nd_supply",
+    "name": "Front tunnel near enemy 2nd supply",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 2,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_gla",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Front tunnel near enemy 2nd supply DS. Tunnel near enemy 2nd supply. Your own 2F tunnel: near",
+    "sequence_steps_normalized": [
+      "Front tunnel near enemy 2nd supply"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Front tunnel near enemy 2nd supply",
+      "description": "DS. Tunnel near enemy 2nd supply. Your own 2F tunnel: near vs GLA/China, can be farther vs USA Vees.",
+      "line": "2. **Front tunnel near enemy 2nd supply** — DS. Tunnel near enemy 2nd supply. Your own 2F tunnel: near vs GLA/China, can be farther vs USA Vees."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_003_save_oil_tunnel_oil_middle_2nd_main",
+    "name": "Save oil; tunnel oil/middle/2nd/main",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 3,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure",
+      "map_control",
+      "oil_grab",
+      "terror"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "rpg_trooper",
+        "technical"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "rpg_trooper",
+        "technical"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Save oil; tunnel oil/middle/2nd/main DS. Defensive; middle garrisoned w/ 2 RPGs, 2nd supply behind one tunnel. Pressure w/ a Tech or take oils (delay main tunnel for money).",
+    "sequence_steps_normalized": [
+      "Save oil",
+      "tunnel oil/middle/2nd/main"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_rpg_trooper",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "rpg_trooper",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 20,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_technical",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "technical",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "technical",
+            "before": 220
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Save oil; tunnel oil/middle/2nd/main",
+      "description": "DS. Defensive; middle garrisoned w/ 2 RPGs, 2nd supply behind one tunnel. Pressure w/ a Tech or take oils (delay main tunnel for money).",
+      "line": "3. **Save oil; tunnel oil/middle/2nd/main** — DS. Defensive; middle garrisoned w/ 2 RPGs, 2nd supply behind one tunnel. Pressure w/ a Tech or take oils (delay main tunnel for money)."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_004_right_left_flank",
+    "name": "Right + Left Flank",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 4,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "map_control"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "map_control"
+      ]
+    },
+    "signature_source_text": "Right + Left Flank DS. Vision on both flanks + middle after garrisoning. Flexible",
+    "sequence_steps_normalized": [
+      "Right + Left Flank"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Right + Left Flank",
+      "description": "DS. Vision on both flanks + middle after garrisoning. Flexible vs several armies.",
+      "line": "4. **Right + Left Flank** — DS. Vision on both flanks + middle after garrisoning. Flexible vs several armies."
+    },
+    "notes": [
+      "No strong object signals extracted automatically; requires manual rule tuning."
+    ],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_005_oil_grab_delayed_tunnel_on_2nd_oil",
+    "name": "Oil-Grab, delayed tunnel on 2nd oil",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 5,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "map_control",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Oil-Grab, delayed tunnel on 2nd oil DS. Risky (1–2 oils); good micro usually gets one; tunnel on 2nd oil very useful. Hard",
+    "sequence_steps_normalized": [
+      "Oil-Grab, delayed tunnel on 2nd oil"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Oil-Grab, delayed tunnel on 2nd oil",
+      "description": "DS. Risky (1–2 oils); good micro usually gets one; tunnel on 2nd oil very useful. Hard vs GLA.",
+      "line": "5. **Oil-Grab, delayed tunnel on 2nd oil** — DS. Risky (1–2 oils); good micro usually gets one; tunnel on 2nd oil very useful. Hard vs GLA."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_006_rush_w_2_3_technicals",
+    "name": "Rush w/ 2–3 Technicals",
+    "faction": "gla",
+    "allowed_generals": [
+      "air_force",
+      "infantry",
+      "toxin"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 6,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "map_control",
+      "spam_rush",
+      "terror"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "tunnel_network"
+      ],
+      "units": [
+        "technical",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "tunnel_network"
+      ],
+      "units": [
+        "king_raptor",
+        "technical",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Rush w/ 2–3 Technicals DS. Fast win: 2 tunnels, pull all tunnel infantry, spam from 2 Barracks; 2–3 workers rebuild tunnels behind the army. Best with Tox;",
+    "sequence_steps_normalized": [
+      "Rush w/ 2–3 Technicals"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_tunnel_network",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_technical",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "technical",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 35,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_worker",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "worker",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "technical",
+            "before": 220
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Rush w/ 2–3 Technicals",
+      "description": "DS. Fast win: 2 tunnels, pull all tunnel infantry, spam from 2 Barracks; 2–3 workers rebuild tunnels behind the army. Best with Tox; vs USA (not AF — KRs kill Techs).",
+      "line": "6. **Rush w/ 2–3 Technicals** — DS. Fast win: 2 tunnels, pull all tunnel infantry, spam from 2 Barracks; 2–3 workers rebuild tunnels behind the army. Best with Tox; vs USA (not AF — KRs kill Techs)."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_007_safe_2nd_supply_anti_china_flank_wf",
+    "name": "Safe 2nd supply, anti China-Flank-WF",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 7,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer",
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Safe 2nd supply, anti China-Flank-WF DS. 2 tunnels by 2nd supply (safer); scout other flank.",
+    "sequence_steps_normalized": [
+      "Safe 2nd supply, anti China-Flank-WF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_arms_dealer",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_tunnel_network",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Safe 2nd supply, anti China-Flank-WF",
+      "description": "DS. 2 tunnels by 2nd supply (safer); scout other flank.",
+      "line": "7. **Safe 2nd supply, anti China-Flank-WF** — DS. 2 tunnels by 2nd supply (safer); scout other flank."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_008_safe_2nd_supply_anti_front_china_w_trucks",
+    "name": "Safe 2nd supply, anti Front-China w/ trucks",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 8,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure",
+      "map_control",
+      "terror"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "supply_truck",
+        "terrorist",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Safe 2nd supply, anti Front-China w/ trucks DS.",
+    "sequence_steps_normalized": [
+      "Safe 2nd supply, anti Front-China w/ trucks"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Safe 2nd supply, anti Front-China w/ trucks",
+      "description": "DS. Vs China front-supply; deny trucks at your 2F or kill a tunnel-building worker; scout with a terrorist.",
+      "line": "8. **Safe 2nd supply, anti Front-China w/ trucks** — DS. Vs China front-supply; deny trucks at your 2F or kill a tunnel-building worker; scout with a terrorist."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_009_3_4_tunnel_rush_no_wf",
+    "name": "3–4 Tunnel-Rush, no WF",
+    "faction": "gla",
+    "allowed_generals": [
+      "infantry",
+      "toxin"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 9,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "no_main_production"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "3–4 Tunnel-Rush, no WF DS. One tunnel very near enemy each flank + 1–2 middle; spam infantry (no WF money). Open",
+    "sequence_steps_normalized": [
+      "3–4 Tunnel-Rush, no WF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_3_tunnel_network",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "3–4 Tunnel-Rush, no WF",
+      "description": "DS. One tunnel very near enemy each flank + 1–2 middle; spam infantry (no WF money). Open vs GLA; risky as Inf; Tox advantaged.",
+      "line": "9. **3–4 Tunnel-Rush, no WF** — DS. One tunnel very near enemy each flank + 1–2 middle; spam infantry (no WF money). Open vs GLA; risky as Inf; Tox advantaged."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_010_terrorist_spam_from_front_rax",
+    "name": "Terrorist spam from Front-Rax",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 10,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure",
+      "map_control",
+      "spam_rush",
+      "terror"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "tunnel_network"
+      ],
+      "units": [
+        "technical",
+        "terrorist"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "map_control"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "tunnel_network"
+      ],
+      "units": [
+        "supply_truck",
+        "technical",
+        "terrorist"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "map_control"
+      ]
+    },
+    "signature_source_text": "Terrorist spam from Front-Rax DS. Good micro kills China's harassing trucks; 3 tunnels + Technical pressure. Full middle control on TD for late game.",
+    "sequence_steps_normalized": [
+      "Terrorist spam from Front-Rax"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_tunnel_network",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_technical",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "technical",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 35,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_terrorist",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "terrorist",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 28,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "technical",
+            "before": 220
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Terrorist spam from Front-Rax",
+      "description": "DS. Good micro kills China's harassing trucks; 3 tunnels + Technical pressure. Full middle control on TD for late game.",
+      "line": "10. **Terrorist spam from Front-Rax** — DS. Good micro kills China's harassing trucks; 3 tunnels + Technical pressure. Full middle control on TD for late game."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_011_dackel_bo",
+    "name": "Dackel-BO",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 11,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Dackel-BO DS. Crave the middle fast with few early workers. Weakness: open supply lanes; MF unprotected early.",
+    "sequence_steps_normalized": [
+      "Dackel-BO"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_worker",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "worker",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dackel-BO",
+      "description": "DS. Crave the middle fast with few early workers. Weakness: open supply lanes; MF unprotected early.",
+      "line": "11. **Dackel-BO** — DS. Crave the middle fast with few early workers. Weakness: open supply lanes; MF unprotected early."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_012_2_front_wfs",
+    "name": "2 Front-WFs",
+    "faction": "gla",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 12,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "dual_production",
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer"
+      ],
+      "units": [
+        "quad_cannon"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "arms_dealer"
+      ],
+      "units": [
+        "quad_cannon",
+        "scorpion_tank",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "worker_scout"
+      ]
+    },
+    "signature_source_text": "2 Front-WFs DS. High-risk pressure from both WFs. Quads",
+    "sequence_steps_normalized": [
+      "2 Front-WFs"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "count": 2,
+          "before": 155
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "exists_before_arms_dealer",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_quad_cannon",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "quad_cannon",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "arms_dealer",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "2 Front-WFs",
+      "description": "DS. High-risk pressure from both WFs. Quads vs AF; Quad+Scorp vs China; scout with a worker.",
+      "line": "12. **2 Front-WFs** — DS. High-risk pressure from both WFs. Quads vs AF; Quad+Scorp vs China; scout with a worker."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_013_pure_oil_grab",
+    "name": "Pure Oil-Grab",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 13,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Pure Oil-Grab SS. Old CCG BO, still effective by surprise; get 2nd supply after taking oils.",
+    "sequence_steps_normalized": [
+      "Pure Oil-Grab"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Pure Oil-Grab",
+      "description": "SS. Old CCG BO, still effective by surprise; get 2nd supply after taking oils.",
+      "line": "13. **Pure Oil-Grab** — SS. Old CCG BO, still effective by surprise; get 2nd supply after taking oils."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_014_flank_rax_bo_vs_china",
+    "name": "Flank-Rax-BO vs China",
+    "faction": "gla",
+    "allowed_generals": [
+      "nuke",
+      "stealth"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 14,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "terror"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks"
+      ],
+      "units": [
+        "hijacker"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks"
+      ],
+      "units": [
+        "hijacker",
+        "terrorist"
+      ],
+      "upgrades": [
+        "stealth_comanche"
+      ],
+      "behaviors": []
+    },
+    "signature_source_text": "Flank-Rax-BO vs China DS. \"Okay\"   Possibly works w/ Stealth/Hijackers. Rare.",
+    "sequence_steps_normalized": [
+      "Flank-Rax-BO vs China"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_hijacker",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "hijacker",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 20,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Flank-Rax-BO vs China",
+      "description": "DS. \"Okay\" vs Nuke; constant Terrorist spam down the flank. Possibly works w/ Stealth/Hijackers. Rare.",
+      "line": "14. **Flank-Rax-BO vs China** — DS. \"Okay\" vs Nuke; constant Terrorist spam down the flank. Possibly works w/ Stealth/Hijackers. Rare."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_015_fast_wf_terror_techs",
+    "name": "Fast-WF, Terror-Techs",
+    "faction": "gla",
+    "allowed_generals": [
+      "demolition"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 15,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "dual_production",
+      "terror"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer",
+        "barracks"
+      ],
+      "units": [
+        "technical"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "barracks"
+      ],
+      "units": [
+        "technical"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Fast-WF, Terror-Techs DS. Bomb everything early — THE Demolition strat. Dual Rax + one WF as the base.",
+    "sequence_steps_normalized": [
+      "Fast-WF, Terror-Techs"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_arms_dealer",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_technical",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "technical",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "technical",
+            "before": 220
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Fast-WF, Terror-Techs",
+      "description": "DS. Bomb everything early — THE Demolition strat. Dual Rax + one WF as the base.",
+      "line": "15. **Fast-WF, Terror-Techs** — DS. Bomb everything early — THE Demolition strat. Dual Rax + one WF as the base."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_016_rax_in_front_back_wf",
+    "name": "Rax in front, Back-WF",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 16,
+    "supply_opening": [
+      "triple_supply"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer",
+        "barracks"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "barracks"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Rax in front, Back-WF TS. Saw in replays; ok",
+    "sequence_steps_normalized": [
+      "Rax in front, Back-WF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_arms_dealer",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Rax in front, Back-WF",
+      "description": "TS. Saw in replays; ok vs USA, weak vs others.",
+      "line": "16. **Rax in front, Back-WF** — TS. Saw in replays; ok vs USA, weak vs others."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_017_powerfuls_bo_w_both_oils",
+    "name": "Powerful's BO w/ both oils",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 17,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Powerful's BO w/ both oils SS. Saw in replays; ok",
+    "sequence_steps_normalized": [
+      "Powerful's BO w/ both oils"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "capture_oil_signal",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 135,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Powerful's BO w/ both oils",
+      "description": "SS. Saw in replays; ok vs USA, weak vs others.",
+      "line": "17. **Powerful's BO w/ both oils** — SS. Saw in replays; ok vs USA, weak vs others."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_demo_trap_bos",
+    "name": "Demo trap BOs",
+    "faction": "gla",
+    "allowed_generals": [
+      "demolition",
+      "tank"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered GLA build orders (1on1)",
+    "source_order": 18,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "demo_trap",
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "demo_trap",
+        "tunnel_network"
+      ],
+      "units": [
+        "dragon_tank",
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Demo trap BOs Demo trap BOs:* generally place a trap and build tunnels a few steps behind it (a Dragon Tank or Vee dies on the trap).",
+    "sequence_steps_normalized": [
+      "Demo trap BOs"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_demo_trap",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "demo_trap",
+          "ideal_before": 120,
+          "hard_before": 180,
+          "weight": 15,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Demo trap BOs",
+      "description": "Demo trap BOs:* generally place a trap and build tunnels a few steps behind it (a Dragon Tank or Vee dies on the trap).",
+      "line": "- *Demo trap BOs:* generally place a trap and build tunnels a few steps behind it (a Dragon Tank or Vee dies on the trap)."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_2v2_front_tunnel_middle",
+    "name": "Front tunnel middle",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "2v2",
+    "source_section": "GLA team (2v2) build orders",
+    "source_order": 1,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "dual_production",
+      "forward_pressure",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "no_main_production"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Front tunnel middle Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD.",
+    "sequence_steps_normalized": [
+      "Front tunnel middle"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Front tunnel middle",
+      "description": "Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD.",
+      "line": "Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_2v2_flank_tunnel",
+    "name": "Flank-Tunnel",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "2v2",
+    "source_section": "GLA team (2v2) build orders",
+    "source_order": 2,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "dual_production",
+      "forward_pressure",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "no_main_production"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Flank-Tunnel Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD.",
+    "sequence_steps_normalized": [
+      "Flank-Tunnel"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Flank-Tunnel",
+      "description": "Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD.",
+      "line": "Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_2v2_nowf",
+    "name": "NoWF",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "2v2",
+    "source_section": "GLA team (2v2) build orders",
+    "source_order": 3,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "dual_production",
+      "forward_pressure",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "no_main_production"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "NoWF Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD.",
+    "sequence_steps_normalized": [
+      "NoWF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "NoWF",
+      "description": "Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD.",
+      "line": "Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_2v2_dual_front_ad",
+    "name": "Dual Front-AD",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "2v2",
+    "source_section": "GLA team (2v2) build orders",
+    "source_order": 4,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "dual_production",
+      "forward_pressure",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build",
+        "no_main_production"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "tunnel_network"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Dual Front-AD Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD.",
+    "sequence_steps_normalized": [
+      "Dual Front-AD"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual Front-AD",
+      "description": "Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD.",
+      "line": "Front tunnel middle · Flank-Tunnel · NoWF · Dual Front-AD."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_oil_grab_derrick_forum_t48393",
+    "name": "Oil-Grab / Derrick (forum t48393):",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "GLA explicit-sequence build orders",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "fast_tech",
+      "forward_pressure",
+      "map_control",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer",
+        "barracks",
+        "palace",
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "rebel",
+        "worker"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "forward_build",
+        "map_control",
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "barracks",
+        "palace",
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "rebel",
+        "worker"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "forward_build",
+        "map_control",
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Oil-Grab / Derrick (forum t48393): original worker → Front Rax; W1 → Supply; W2 → furthest Derrick; W3 → closest Derrick; W4 → Unsafe Supply; W5 → worker to unsafe for Tunnel; W6 → Tunnel at safe. Build AD after a derrick; Palace ASAP if both derricks. Then Capture upgrade w/ 2 rebels; expand tunnels flanks + middle.",
+    "sequence_steps_normalized": [
+      "original worker",
+      "Front Rax",
+      "Supply",
+      "furthest Derrick",
+      "closest Derrick",
+      "Unsafe Supply",
+      "worker to unsafe for Tunnel",
+      "Tunnel at safe",
+      "Build AD after a derrick",
+      "Palace ASAP if both derricks",
+      "Capture upgrade w/ 2 rebels",
+      "expand tunnels flanks + middle."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_arms_dealer",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_palace",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "palace",
+          "ideal_before": 220,
+          "hard_before": 300,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_rebel",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "rebel",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 12,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_worker",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "worker",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "palace",
+            "before": 330
+          },
+          "max_score": 67
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Oil-Grab / Derrick (forum t48393):",
+      "description": "original worker → Front Rax; W1 → Supply; W2 → furthest Derrick; W3 → closest Derrick; W4 → Unsafe Supply; W5 → worker to unsafe for Tunnel; W6 → Tunnel at safe. Build AD after a derrick; Palace ASAP if both derricks. Then Capture upgrade w/ 2 rebels; expand tunnels flanks + middle.",
+      "line": "- **Oil-Grab / Derrick (forum t48393):** original worker → Front Rax; W1 → Supply; W2 → furthest Derrick; W3 → closest Derrick; W4 → Unsafe Supply; W5 → worker to unsafe for Tunnel; W6 → Tunnel at safe. Build AD after a derrick; Palace ASAP if both derricks. Then Capture upgrade w/ 2 rebels; expand tunnels flanks + middle."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_dual_arms_dealer_tip_114",
+    "name": "Dual Arms Dealer (Tip #114):",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "GLA explicit-sequence build orders",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "dual_production",
+      "forward_pressure",
+      "map_control",
+      "terror"
+    ],
+    "matchup_targets": [
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer",
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "quad_cannon",
+        "technical"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "power_plant",
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "chinook",
+        "humvee",
+        "quad_cannon",
+        "technical"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb"
+      ]
+    },
+    "signature_source_text": "Dual Arms Dealer (Tip #114): W1 → safe supplies, W2 → unsafe supplies, W3 + W4 → middle (two Arms Dealers). No tunnels. Technicals (hunt Vees) + Quads (harass Chinooks) + Terror Cars (kill power).",
+    "sequence_steps_normalized": [
+      "safe supplies, W2",
+      "unsafe supplies, W3 + W4",
+      "middle (two Arms Dealers)",
+      "No tunnels",
+      "Technicals (hunt Vees) + Quads (harass Chinooks) + Terror Cars (kill power)",
+      "Vs USA."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "count": 2,
+          "before": 155
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "count_before_2_arms_dealer",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_quad_cannon",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "quad_cannon",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_technical",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "technical",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "arms_dealer",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "technical",
+            "before": 220
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual Arms Dealer (Tip #114):",
+      "description": "W1 → safe supplies, W2 → unsafe supplies, W3 + W4 → middle (two Arms Dealers). No tunnels. Technicals (hunt Vees) + Quads (harass Chinooks) + Terror Cars (kill power). Vs USA.",
+      "line": "- **Dual Arms Dealer (Tip #114):** W1 → safe supplies, W2 → unsafe supplies, W3 + W4 → middle (two Arms Dealers). No tunnels. Technicals (hunt Vees) + Quads (harass Chinooks) + Terror Cars (kill power). Vs USA."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_gla_mirror_forward_barracks",
+    "name": "GLA Mirror — Forward Barracks:",
+    "faction": "gla",
+    "allowed_generals": [
+      "toxin"
+    ],
+    "scope": "1v1",
+    "source_section": "GLA explicit-sequence build orders",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "forward_pressure",
+      "map_control",
+      "terror"
+    ],
+    "matchup_targets": [
+      "mirror",
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer",
+        "barracks",
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "rebel",
+        "terrorist",
+        "toxin_rebel",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "box_supply",
+        "car_bomb",
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "barracks",
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "rebel",
+        "terrorist",
+        "toxin_rebel",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "box_supply",
+        "car_bomb",
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "GLA Mirror — Forward Barracks: Front Barracks → workers build a Tunnel at a key point (middle on TD/FFZ) → main supply boxed by AD + Rax/Tunnel. Terrorists in cars or Toxin Rebels hunt workers.",
+    "sequence_steps_normalized": [
+      "Front Barracks",
+      "workers build a Tunnel at a key point (middle on TD/FFZ)",
+      "main supply boxed by AD + Rax/Tunnel",
+      "Terrorists in cars or Toxin Rebels hunt workers."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_arms_dealer",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_rebel",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "rebel",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 12,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_terrorist",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "terrorist",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_toxin_rebel",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "toxin_rebel",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 15,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_worker",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "worker",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "GLA Mirror — Forward Barracks:",
+      "description": "Front Barracks → workers build a Tunnel at a key point (middle on TD/FFZ) → main supply boxed by AD + Rax/Tunnel. Terrorists in cars or Toxin Rebels hunt workers.",
+      "line": "- **GLA Mirror — Forward Barracks:** Front Barracks → workers build a Tunnel at a key point (middle on TD/FFZ) → main supply boxed by AD + Rax/Tunnel. Terrorists in cars or Toxin Rebels hunt workers."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "gla_1v1_gla_mirror_standard_base",
+    "name": "GLA Mirror — Standard Base:",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "GLA explicit-sequence build orders",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "terror"
+    ],
+    "matchup_targets": [
+      "mirror"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer",
+        "barracks",
+        "supply_center"
+      ],
+      "units": [
+        "technical",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "box_supply"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "barracks",
+        "supply_center"
+      ],
+      "units": [
+        "technical",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "box_supply"
+      ]
+    },
+    "signature_source_text": "GLA Mirror — Standard Base: W1 → main Supply → box w/ Rax + Arms Dealer (protected). Harass enemy workers w/ Technicals early.",
+    "sequence_steps_normalized": [
+      "main Supply",
+      "box w/ Rax + Arms Dealer (protected)",
+      "Harass enemy workers w/ Technicals early."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_arms_dealer",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_technical",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "technical",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_worker",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "worker",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "technical",
+            "before": 220
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "GLA Mirror — Standard Base:",
+      "description": "W1 → main Supply → box w/ Rax + Arms Dealer (protected). Harass enemy workers w/ Technicals early.",
+      "line": "- **GLA Mirror — Standard Base:** W1 → main Supply → box w/ Rax + Arms Dealer (protected). Harass enemy workers w/ Technicals early."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "randomm_gla_car_bombs",
+    "name": "Car Bombs:",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "random",
+    "source_section": "RandomM guide",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "forward_pressure",
+      "map_control",
+      "terror"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer",
+        "barracks",
+        "tunnel_network"
+      ],
+      "units": [
+        "rpg_trooper",
+        "technical",
+        "terrorist",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb",
+        "dozer_scout"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "barracks",
+        "power_plant",
+        "tunnel_network"
+      ],
+      "units": [
+        "dozer",
+        "rpg_trooper",
+        "supply_truck",
+        "technical",
+        "terrorist",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "car_bomb",
+        "dozer_scout"
+      ]
+    },
+    "signature_source_text": "Car Bombs: first Worker → Barracks near middle → 2 Terrorists into cars; scout + run over workers / kill dozers, trucks, first WF units, or USA Power. Follow with Tech RPG + a flank tunnel, or go tunnel map-control.",
+    "sequence_steps_normalized": [
+      "first Worker",
+      "Barracks near middle",
+      "2 Terrorists into cars",
+      "scout + run over workers / kill dozers, trucks, first WF units, or USA Power",
+      "Follow with Tech RPG + a flank tunnel, or go tunnel map-control."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_arms_dealer",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_rpg_trooper",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "rpg_trooper",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_technical",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "technical",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_terrorist",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "terrorist",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 28,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_worker",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "worker",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "technical",
+            "before": 220
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Car Bombs:",
+      "description": "first Worker → Barracks near middle → 2 Terrorists into cars; scout + run over workers / kill dozers, trucks, first WF units, or USA Power. Follow with Tech RPG + a flank tunnel, or go tunnel map-control.",
+      "line": "- **GLA — Car Bombs:** first Worker → Barracks near middle → 2 Terrorists into cars; scout + run over workers / kill dozers, trucks, first WF units, or USA Power. Follow with Tech RPG + a flank tunnel, or go tunnel map-control."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "randomm_gla_tech_terr",
+    "name": "Tech Terr:",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "random",
+    "source_section": "RandomM guide",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "map_control",
+      "terror"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "arms_dealer",
+        "tunnel_network"
+      ],
+      "units": [
+        "marauder_tank",
+        "quad_cannon",
+        "rpg_trooper",
+        "technical"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "arms_dealer",
+        "supply_center",
+        "tunnel_network"
+      ],
+      "units": [
+        "marauder_tank",
+        "quad_cannon",
+        "rpg_trooper",
+        "technical"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Tech Terr: build one fast; hit a key structure (usually WF;   Buys time for map control / a tunnel near them, then attack with RPGs + Quads/Marauders.",
+    "sequence_steps_normalized": [
+      "Tech Terr"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_arms_dealer",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "arms_dealer",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_marauder_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "marauder_tank",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 25,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_quad_cannon",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "quad_cannon",
+          "ideal_before": 145,
+          "hard_before": 205,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_rpg_trooper",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "rpg_trooper",
+          "ideal_before": 105,
+          "hard_before": 160,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_technical",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "technical",
+          "ideal_before": 135,
+          "hard_before": 190,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "terrorist",
+            "before": 210
+          },
+          "max_score": 62
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "technical",
+            "before": 220
+          },
+          "max_score": 65
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Tech Terr:",
+      "description": "build one fast; hit a key structure (usually WF; vs single-supply USA hit the supply). Buys time for map control / a tunnel near them, then attack with RPGs + Quads/Marauders.",
+      "line": "- **GLA — Tech Terr:** build one fast; hit a key structure (usually WF; vs single-supply USA hit the supply). Buys time for map control / a tunnel near them, then attack with RPGs + Quads/Marauders."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "randomm_gla_tunnel_spam",
+    "name": "Tunnel Spam:",
+    "faction": "gla",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "random",
+    "source_section": "RandomM guide",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "fast_tech",
+      "forward_pressure",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "mirror"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "palace",
+        "tunnel_network"
+      ],
+      "units": [
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "palace",
+        "tunnel_network"
+      ],
+      "units": [
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Tunnel Spam: keep sending workers forward, tunnels at key points, crawl forward and pop units to defend; delay until a Palace. Best in GLA mirrors.",
+    "sequence_steps_normalized": [
+      "Tunnel Spam"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_palace",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "palace",
+          "ideal_before": 220,
+          "hard_before": 300,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tunnel_network",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "tunnel_network",
+          "ideal_before": 95,
+          "hard_before": 150,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_worker",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "worker",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "palace",
+            "before": 330
+          },
+          "max_score": 67
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "tunnel_network",
+            "before": 190
+          },
+          "max_score": 70
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Tunnel Spam:",
+      "description": "keep sending workers forward, tunnels at key points, crawl forward and pop units to defend; delay until a Palace. Best in GLA mirrors.",
+      "line": "- **GLA — Tunnel Spam:** keep sending workers forward, tunnels at key points, crawl forward and pop units to defend; delay until a Palace. Best in GLA mirrors."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  }
+]

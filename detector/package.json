@@ -1,0 +1,18 @@
+{
+  "name": "zh-tactic-detector",
+  "version": "1.0.0",
+  "description": "Zero Hour opening tactic detector",
+  "main": "dist/openingDetector.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/openingDetector.ts",
+    "test": "ts-node src/test/runTests.ts",
+    "validate-tactics": "ts-node src/tacticLoader.ts --validate"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.0",
+    "@types/node": "^20.0.0"
+  }
+}

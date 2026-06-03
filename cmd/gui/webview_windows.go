@@ -16,7 +16,7 @@ func openWebView(url string) (ok bool) {
 		Debug:     false,
 		AutoFocus: true,
 		WindowOptions: webview.WindowOptions{
-			Title:  "CnC Replay Browser",
+			Title:  "RECON",
 			Width:  1280,
 			Height: 800,
 			Center: true,

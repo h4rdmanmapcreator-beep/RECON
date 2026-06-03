@@ -3,6 +3,7 @@ package zhreplay
 import (
 	"math"
 
+	"github.com/bill-rich/cncstats/pkg/detect"
 	"github.com/bill-rich/cncstats/pkg/iniparse"
 	"github.com/bill-rich/cncstats/pkg/statsfile"
 	"github.com/bill-rich/cncstats/pkg/zhreplay/body"
@@ -104,11 +105,12 @@ type PlayerSummaryV2 struct {
 	MoneyEarned    int                              `json:"moneyEarned"`
 	MoneySpent     int                              `json:"moneySpent"`
 	Score          int                              `json:"score"`
-	Academy        *statsfile.Academy               `json:"academy,omitempty"`
-	UnitsCreated   map[string]*object.ObjectSummary `json:"unitsCreated"`
-	BuildingsBuilt map[string]*object.ObjectSummary `json:"buildingsBuilt"`
-	UpgradesBuilt  map[string]*object.ObjectSummary `json:"upgradesBuilt"`
-	PowersUsed     map[string]int                   `json:"powersUsed"`
+	Academy         *statsfile.Academy               `json:"academy,omitempty"`
+	UnitsCreated    map[string]*object.ObjectSummary `json:"unitsCreated"`
+	BuildingsBuilt  map[string]*object.ObjectSummary `json:"buildingsBuilt"`
+	UpgradesBuilt   map[string]*object.ObjectSummary `json:"upgradesBuilt"`
+	PowersUsed      map[string]int                   `json:"powersUsed"`
+	TacticDetection *detect.DetectionResult          `json:"tacticDetection,omitempty"`
 }
 
 // EnrichedBuildEvent embeds a BuildEvent and adds object type classification.
@@ -200,6 +202,35 @@ func enrichStats(stats *statsfile.GameStats, objectStore *iniparse.ObjectStore) 
 	return es
 }
 
+// runTacticDetection populates TacticDetection on every non-observer player in v2.
+// It converts the replay body to normalised events for each player, then passes
+// them to the embedded JavaScript detector.  Errors are logged to the evidence
+// field so the rest of the response is never blocked.
+func runTacticDetection(v2 *EnhancedReplayV2) {
+	slot := 1
+	for _, p := range v2.Summary {
+		if p.Side == "Observer" {
+			continue
+		}
+		faction := canonicalFaction(p.Side)
+		if faction == "" {
+			slot++
+			continue
+		}
+		events := eventsForPlayer(v2.Body, p.Name)
+		result, err := detect.DetectPlayer(slot, faction, events)
+		if err != nil {
+			result = detect.DetectionResult{
+				PlayerID: slot, Status: "unknown",
+				Evidence:   []string{"detector error: " + err.Error()},
+				Candidates: []detect.CandidateScore{},
+			}
+		}
+		p.TacticDetection = &result
+		slot++
+	}
+}
+
 // ConvertToEnhancedReplayV2 creates a v2 enhanced replay using the stats JSON file.
 // If objectStore is non-nil, events are enriched with object type classification.
 func ConvertToEnhancedReplayV2(replay *Replay, stats *statsfile.GameStats, objectStore *iniparse.ObjectStore) *EnhancedReplayV2 {
@@ -270,6 +301,9 @@ func ConvertToEnhancedReplayV2(replay *Replay, stats *statsfile.GameStats, objec
 	// Determine winners using death events from stats
 	v2.DetermineWinnersByDeathEvents(objectStore)
 	v2.applyHumansVsCPUFlip()
+
+	// Run tactic detection using the embedded JS engine
+	runTacticDetection(v2)
 
 	return v2
 }
@@ -777,6 +811,9 @@ func ConvertToBasicEnhancedReplayV2(replay *Replay) *EnhancedReplayV2 {
 			PowersUsed:     ps.PowersUsed,
 		}
 	}
+
+	// Run tactic detection using the embedded JS engine
+	runTacticDetection(v2)
 
 	return v2
 }

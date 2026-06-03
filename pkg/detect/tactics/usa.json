@@ -1,0 +1,5559 @@
+[
+  {
+    "id": "usa_1v1_001_2_3_md_vee",
+    "name": "2/3 MD-Vee",
+    "faction": "usa",
+    "allowed_generals": [
+      "nuke",
+      "tank",
+      "vanilla_china"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 1,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop",
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "dozer",
+        "humvee",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [
+        "chinook",
+        "dozer",
+        "humvee",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "2/3 MD-Vee DS. Basic strat   Pressure with first Humvee (middle path   Optional dropped dozer to harass GLA eco.",
+    "sequence_steps_normalized": [
+      "2/3 MD-Vee"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_missile_defender",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "2/3 MD-Vee",
+      "description": "DS. Basic strat vs Nuke/Tank/vChina/GLA. Pressure with first Humvee (middle path vs China); 2 supply Chinooks. Optional dropped dozer to harass GLA eco.",
+      "line": "1. **2/3 MD-Vee** — DS. Basic strat vs Nuke/Tank/vChina/GLA. Pressure with first Humvee (middle path vs China); 2 supply Chinooks. Optional dropped dozer to harass GLA eco."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_002_save_bo_scout_left_right",
+    "name": "Save BO, scout left/right",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 2,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "standard"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "dozer",
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "box_supply",
+        "dozer_scout"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [
+        "dozer",
+        "humvee",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "box_supply",
+        "dozer_scout"
+      ]
+    },
+    "signature_source_text": "Save BO, scout left/right DS. Box dozer in; scout one side with a Dozer, other side with a Vee for workers.",
+    "sequence_steps_normalized": [
+      "Save BO, scout left/right"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Save BO, scout left/right",
+      "description": "DS. Vs all GLA. Box dozer in; scout one side with a Dozer, other side with a Vee for workers.",
+      "line": "2. **Save BO, scout left/right** — DS. Vs all GLA. Box dozer in; scout one side with a Dozer, other side with a Vee for workers."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_003_save_bo_w_paladin_laser_tank_spam",
+    "name": "Save BO w/ Paladin/Laser-tank spam",
+    "faction": "usa",
+    "allowed_generals": [
+      "laser",
+      "tank"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 3,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "standard"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "power_plant"
+      ],
+      "units": [
+        "laser_tank",
+        "paladin"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "power_plant"
+      ],
+      "units": [
+        "laser_tank",
+        "paladin"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "Save BO w/ Paladin/Laser-tank spam DS. Paladins hold off missiles (firepower + PDL).",
+    "sequence_steps_normalized": [
+      "Save BO w/ Paladin/Laser-tank spam"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_laser_tank",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "laser_tank",
+          "ideal_before": 145,
+          "hard_before": 210,
+          "weight": 28,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_paladin",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "paladin",
+          "ideal_before": 145,
+          "hard_before": 210,
+          "weight": 28,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Save BO w/ Paladin/Laser-tank spam",
+      "description": "DS. Paladins hold off missiles (firepower + PDL). Best vs GLA (heavy missiles); use Palis vs China that goes Outposts.",
+      "line": "3. **Save BO w/ Paladin/Laser-tank spam** — DS. Paladins hold off missiles (firepower + PDL). Best vs GLA (heavy missiles); use Palis vs China that goes Outposts."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_004_3_md_drop_with_or_without_wf",
+    "name": "3 MD Drop, with or without WF",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 4,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop"
+    ],
+    "matchup_targets": [
+      "mirror"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "dozer",
+        "missile_defender",
+        "ranger"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "dozer",
+        "missile_defender",
+        "ranger"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop",
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "3 MD Drop, with or without WF DS. The standard USA-mirror BO. 2nd Dozer builds Rax → 3 MDs to drop. Variants: MDs hunt enemy Chinook / spam rangers",
+    "sequence_steps_normalized": [
+      "The standard USA-mirror BO",
+      "2nd Dozer builds Rax",
+      "3 MDs to drop",
+      "Variants: MDs hunt enemy Chinook / spam rangers vs his MDs / build WF + delay a Chinook / forward WF at enemy base / drop dozer for 2nd Rax in enemy base."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_chinook",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_dozer",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_missile_defender",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_ranger",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "ranger",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 16,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "3 MD Drop, with or without WF",
+      "description": "DS. The standard USA-mirror BO. 2nd Dozer builds Rax → 3 MDs to drop. Variants: MDs hunt enemy Chinook / spam rangers vs his MDs / build WF + delay a Chinook / forward WF at enemy base / drop dozer for 2nd Rax in enemy base.",
+      "line": "4. **3 MD Drop, with or without WF** — DS. The standard USA-mirror BO. 2nd Dozer builds Rax → 3 MDs to drop. Variants: MDs hunt enemy Chinook / spam rangers vs his MDs / build WF + delay a Chinook / forward WF at enemy base / drop dozer for 2nd Rax in enemy base."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_005_oil_grab_wf_or_af",
+    "name": "Oil-Grab + WF or AF",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 5,
+    "supply_opening": [
+      "single_supply",
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "map_control",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "war_factory"
+      ],
+      "units": [],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "tunnel_network",
+        "war_factory"
+      ],
+      "units": [
+        "worker"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Oil-Grab + WF or AF SS or DS. Kill workers, take both oils. Works",
+    "sequence_steps_normalized": [
+      "Oil-Grab + WF or AF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_airfield",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Oil-Grab + WF or AF",
+      "description": "SS or DS. Kill tunnel-workers, take both oils. Works vs GLA and China.",
+      "line": "5. **Oil-Grab + WF or AF** — SS or DS. Kill tunnel-workers, take both oils. Works vs GLA and China."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_006_2_airfields",
+    "name": "2 Airfields",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force",
+      "stealth"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 6,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "dual_production"
+    ],
+    "matchup_targets": [
+      "mirror",
+      "vs_gla",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield"
+      ],
+      "units": [
+        "chinook",
+        "king_raptor"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield"
+      ],
+      "units": [
+        "chinook",
+        "comanche",
+        "king_raptor"
+      ],
+      "upgrades": [
+        "rocket_pods",
+        "stealth_comanche"
+      ],
+      "behaviors": []
+    },
+    "signature_source_text": "2 Airfields DS. Old AF-mirror main BO, still usable   In AF mirror use Chinook/KR point-defense;",
+    "sequence_steps_normalized": [
+      "2 Airfields"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_chinook",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_king_raptor",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "king_raptor",
+          "ideal_before": 160,
+          "hard_before": 220,
+          "weight": 35,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_war_factory_contradiction",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "before": 100,
+          "penalty": 20,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "2 Airfields",
+      "description": "DS. Old AF-mirror main BO, still usable vs AF/GLA. In AF mirror use Chinook/KR point-defense; vs GLA spam Comanches, research Stealth + rocket after first 2–3 Comanches.",
+      "line": "6. **2 Airfields** — DS. Old AF-mirror main BO, still usable vs AF/GLA. In AF mirror use Chinook/KR point-defense; vs GLA spam Comanches, research Stealth + rocket after first 2–3 Comanches."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_007_tank_drop",
+    "name": "Tank-Drop",
+    "faction": "usa",
+    "allowed_generals": [
+      "infantry",
+      "tank"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 7,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [
+        "supply_truck",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Tank-Drop DS. Wreck eco by running over workers / crushing trucks.",
+    "sequence_steps_normalized": [
+      "Tank-Drop"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Tank-Drop",
+      "description": "DS. Vs GLA and China (not Infantry). Wreck eco by running over workers / crushing trucks.",
+      "line": "7. **Tank-Drop** — DS. Vs GLA and China (not Infantry). Wreck eco by running over workers / crushing trucks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_008_fast_pat_drop",
+    "name": "Fast Pat-Drop",
+    "faction": "usa",
+    "allowed_generals": [
+      "laser",
+      "superweapon",
+      "tank"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 8,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "drop"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "patriot",
+        "supply_center"
+      ],
+      "units": [
+        "chinook",
+        "crusader_tank",
+        "dozer",
+        "laser_tank"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "patriot",
+        "supply_center"
+      ],
+      "units": [
+        "chinook",
+        "crusader_tank",
+        "dozer",
+        "laser_tank",
+        "supply_truck",
+        "tank_hunter"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Fast Pat-Drop SS. Best as SW/Laser (strong Patriots). 2nd Dozer drives to enemy, builds Supply, then loads into Chinook and drops in enemy base to build a Patriot + kill trucks/buildings. Can follow with tank/laser-tank/Crusader drop.",
+    "sequence_steps_normalized": [
+      "Best as SW/Laser (strong Patriots)",
+      "2nd Dozer drives to enemy, builds Supply",
+      "loads into Chinook and drops in enemy base to build a Patriot + kill trucks/buildings",
+      "China counters with fast Rax",
+      "THs",
+      "Can follow with tank/laser-tank/Crusader drop."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_patriot",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "patriot",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_crusader_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "crusader_tank",
+          "ideal_before": 145,
+          "hard_before": 210,
+          "weight": 25,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_laser_tank",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "laser_tank",
+          "ideal_before": 145,
+          "hard_before": 210,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Fast Pat-Drop",
+      "description": "SS. Best as SW/Laser (strong Patriots). 2nd Dozer drives to enemy, builds Supply, then loads into Chinook and drops in enemy base to build a Patriot + kill trucks/buildings. China counters with fast Rax→THs. Can follow with tank/laser-tank/Crusader drop.",
+      "line": "8. **Fast Pat-Drop** — SS. Best as SW/Laser (strong Patriots). 2nd Dozer drives to enemy, builds Supply, then loads into Chinook and drops in enemy base to build a Patriot + kill trucks/buildings. China counters with fast Rax→THs. Can follow with tank/laser-tank/Crusader drop."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_009_pali_vee_drop",
+    "name": "Pali + Vee Drop",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 9,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "drop",
+      "spam_rush"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "humvee",
+        "missile_defender",
+        "paladin"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [
+        "humvee",
+        "missile_defender",
+        "paladin"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Pali + Vee Drop SS. Rush abusing Paladin. Build Paladin + Vee + 4–5 MDs.",
+    "sequence_steps_normalized": [
+      "Pali + Vee Drop"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_4_missile_defender",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "count": 4,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_paladin",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "paladin",
+          "ideal_before": 145,
+          "hard_before": 210,
+          "weight": 28,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Pali + Vee Drop",
+      "description": "SS. Rush abusing Paladin. Build Paladin + Vee + 4–5 MDs.",
+      "line": "9. **Pali + Vee Drop** — SS. Rush abusing Paladin. Build Paladin + Vee + 4–5 MDs."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_010_fast_vee",
+    "name": "Fast Vee",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 10,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "standard"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "humvee"
+      ],
+      "upgrades": [
+        "hellfire_drone"
+      ],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [
+        "humvee",
+        "supply_truck"
+      ],
+      "upgrades": [
+        "hellfire_drone"
+      ],
+      "behaviors": []
+    },
+    "signature_source_text": "Fast Vee DS. Very effective   Pressure single Vee w/ Hellfire/Repair drone; kill trucks.",
+    "sequence_steps_normalized": [
+      "Fast Vee"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_hellfire_drone",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "hellfire_drone",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 10,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Fast Vee",
+      "description": "DS. Very effective vs China. Pressure single Vee w/ Hellfire/Repair drone; kill trucks.",
+      "line": "10. **Fast Vee** — DS. Very effective vs China. Pressure single Vee w/ Hellfire/Repair drone; kill trucks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_011_cc_rush_as_af_w_mds_only",
+    "name": "CC-Rush as AF w/ MDs only",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 11,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "air"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "command_center"
+      ],
+      "units": [
+        "chinook",
+        "combat_chinook",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "command_center"
+      ],
+      "units": [
+        "chinook",
+        "combat_chinook",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "CC-Rush as AF w/ MDs only SS. Bring 1–2 normal Chinooks to protect the Combat Chinook from missiles.",
+    "sequence_steps_normalized": [
+      "CC-Rush as AF w/ MDs only"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_command_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "command_center",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_combat_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "combat_chinook",
+          "ideal_before": 160,
+          "hard_before": 220,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_missile_defender",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_war_factory_contradiction",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "before": 100,
+          "penalty": 20,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "CC-Rush as AF w/ MDs only",
+      "description": "SS. Mostly vs GLA. Bring 1–2 normal Chinooks to protect the Combat Chinook from missiles.",
+      "line": "11. **CC-Rush as AF w/ MDs only** — SS. Mostly vs GLA. Bring 1–2 normal Chinooks to protect the Combat Chinook from missiles."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_012_cc_rush_as_af_w_ranger_vs_usa",
+    "name": "CC-Rush as AF w/ Ranger vs USA",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 12,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "air"
+    ],
+    "matchup_targets": [
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "command_center"
+      ],
+      "units": [
+        "combat_chinook",
+        "ranger"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "command_center"
+      ],
+      "units": [
+        "chinook",
+        "combat_chinook",
+        "ranger"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "CC-Rush as AF w/ Ranger vs USA SS. Risky — test in skirmish.",
+    "sequence_steps_normalized": [
+      "CC-Rush as AF w/ Ranger vs USA"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_airfield",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_command_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "command_center",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_combat_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "combat_chinook",
+          "ideal_before": 160,
+          "hard_before": 220,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_ranger",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "ranger",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 16,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_war_factory_contradiction",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "before": 100,
+          "penalty": 20,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "CC-Rush as AF w/ Ranger vs USA",
+      "description": "SS. Mostly vs USA; Chinook PDL blocks missiles. Risky — test in skirmish.",
+      "line": "12. **CC-Rush as AF w/ Ranger vs USA** — SS. Mostly vs USA; Chinook PDL blocks missiles. Risky — test in skirmish."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_013_save_oil_flanks",
+    "name": "Save oil, flanks",
+    "faction": "usa",
+    "allowed_generals": [
+      "laser",
+      "nuke",
+      "superweapon",
+      "tank",
+      "vanilla_china"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 13,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "forward_build",
+        "map_control"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [
+        "gattling_tank",
+        "missile_defender"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "forward_build",
+        "map_control"
+      ]
+    },
+    "signature_source_text": "Save oil, flanks DS. Mainly   Capture oil, shut both flanks + middle, protect oil; 2 MDs in middle buildings to catch Gattlings. Good for SW/Laser.",
+    "sequence_steps_normalized": [
+      "Save oil, flanks"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_missile_defender",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Save oil, flanks",
+      "description": "DS. Mainly vs Nuke/Tank/vChina. Capture oil, shut both flanks + middle, protect oil; 2 MDs in middle buildings to catch Gattlings. Good for SW/Laser.",
+      "line": "13. **Save oil, flanks** — DS. Mainly vs Nuke/Tank/vChina. Capture oil, shut both flanks + middle, protect oil; 2 MDs in middle buildings to catch Gattlings. Good for SW/Laser."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_014_usa_fast_tech",
+    "name": "USA-Fast-Tech",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 14,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "fast_tech"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "dozer",
+        "humvee"
+      ],
+      "upgrades": [
+        "search_and_destroy"
+      ],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [
+        "dozer",
+        "humvee",
+        "mig",
+        "tank_hunter"
+      ],
+      "upgrades": [
+        "search_and_destroy"
+      ],
+      "behaviors": []
+    },
+    "signature_source_text": "USA-Fast-Tech SS. 1.04 classic; SnD Vees outrange China pre-tech units. Use dozers as radar; after SnD, only Migs/mass THs/teched China stop you. Watch flame tanks.",
+    "sequence_steps_normalized": [
+      "USA-Fast-Tech"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_search_and_destroy",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "search_and_destroy",
+          "ideal_before": 230,
+          "hard_before": 310,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "inferred_fast_tech_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        },
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "USA-Fast-Tech",
+      "description": "SS. 1.04 classic; SnD Vees outrange China pre-tech units. Use dozers as radar; after SnD, only Migs/mass THs/teched China stop you. Watch flame tanks.",
+      "line": "14. **USA-Fast-Tech** — SS. 1.04 classic; SnD Vees outrange China pre-tech units. Use dozers as radar; after SnD, only Migs/mass THs/teched China stop you. Watch flame tanks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_015_dual_wf_veentank_spam",
+    "name": "Dual WF, Vee'n'Tank spam",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force",
+      "laser",
+      "superweapon",
+      "tank",
+      "vanilla_china",
+      "vanilla_usa"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 15,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "dual_production",
+      "spam_rush"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [
+        "tow_missiles"
+      ],
+      "behaviors": []
+    },
+    "signature_source_text": "Dual WF, Vee'n'Tank spam DS. In 1.04 delay a Chinook; in 1.06 push 2 Vees then tanks (Laser/vUSA). Not for SW/AF.",
+    "sequence_steps_normalized": [
+      "Dual WF, Vee'n'Tank spam"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [
+        {
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "count": 2,
+          "before": 155
+        }
+      ],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_chinook",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_humvee",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "count_before",
+            "event": "building_start",
+            "object": "war_factory",
+            "count": 2,
+            "before": 180
+          },
+          "max_score": 65
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual WF, Vee'n'Tank spam",
+      "description": "DS. Vs vChina (strong TOW). In 1.04 delay a Chinook; in 1.06 push 2 Vees then tanks (Laser/vUSA). Not for SW/AF.",
+      "line": "15. **Dual WF, Vee'n'Tank spam** — DS. Vs vChina (strong TOW). In 1.04 delay a Chinook; in 1.06 push 2 Vees then tanks (Laser/vUSA). Not for SW/AF."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_016_no_eco_bo",
+    "name": "No-Eco BO",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 16,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "no_eco",
+      "spam_rush"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [
+        "ambulance",
+        "humvee",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "no_eco"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [],
+      "units": [
+        "ambulance",
+        "humvee",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "no_eco"
+      ]
+    },
+    "signature_source_text": "No-Eco BO SS. 1.04). Spam 2 Vees + Ambulance, MDs in Vees; pressure with first, send 2nd to destroy base.",
+    "sequence_steps_normalized": [
+      "No-Eco BO"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_3_ambulance",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "ambulance",
+          "ideal_before": 150,
+          "hard_before": 215,
+          "weight": 24,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_humvee",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_missile_defender",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "No-Eco BO",
+      "description": "SS. Vs China (esp. 1.04). Spam 2 Vees + Ambulance, MDs in Vees; pressure with first, send 2nd to destroy base.",
+      "line": "16. **No-Eco BO** — SS. Vs China (esp. 1.04). Spam 2 Vees + Ambulance, MDs in Vees; pressure with first, send 2nd to destroy base."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_017_oil_grab_vs_usa",
+    "name": "Oil-Grab vs USA",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 17,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "mirror",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Oil-Grab vs USA SS. For USA mirrors. Only defend one supply; depends fully on getting all oils.",
+    "sequence_steps_normalized": [
+      "Oil-Grab vs USA"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Oil-Grab vs USA",
+      "description": "SS. For USA mirrors. Only defend one supply; depends fully on getting all oils.",
+      "line": "17. **Oil-Grab vs USA** — SS. For USA mirrors. Only defend one supply; depends fully on getting all oils."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_018_patntank_drop",
+    "name": "Pat'n'Tank-Drop",
+    "faction": "usa",
+    "allowed_generals": [
+      "tank"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 18,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "drop"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "patriot",
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "patriot",
+        "supply_center"
+      ],
+      "units": [
+        "supply_truck"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Pat'n'Tank-Drop SS. Drop a Patriot at a supply, drop a tank later to support / hit trucks.",
+    "sequence_steps_normalized": [
+      "Pat'n'Tank-Drop"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_patriot",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "patriot",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Pat'n'Tank-Drop",
+      "description": "SS. Vs China. Drop a Patriot at a supply, drop a tank later to support / hit trucks.",
+      "line": "18. **Pat'n'Tank-Drop** — SS. Vs China. Drop a Patriot at a supply, drop a tank later to support / hit trucks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_019_3_dozer_bo",
+    "name": "3-Dozer BO",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 19,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "standard"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [
+        "chinook",
+        "dozer"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center"
+      ],
+      "units": [
+        "chinook",
+        "dozer",
+        "worker"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "3-Dozer BO DS. Choose 1 supply + 3 Chinooks (pressure) or DS + 4 Chinooks.",
+    "sequence_steps_normalized": [
+      "3-Dozer BO"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_chinook",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "3-Dozer BO",
+      "description": "DS. Vs GLA; 2nd dozer kills workers. Choose 1 supply + 3 Chinooks (pressure) or DS + 4 Chinooks.",
+      "line": "19. **3-Dozer BO** — DS. Vs GLA; 2nd dozer kills workers. Choose 1 supply + 3 Chinooks (pressure) or DS + 4 Chinooks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_020_dual_pat_drop_or_pat_fb_drop",
+    "name": "Dual-Pat-Drop or Pat+FB-Drop",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 20,
+    "supply_opening": [
+      "single_supply",
+      "dual_supply"
+    ],
+    "category": [
+      "drop",
+      "dual_production"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "firebase",
+        "patriot",
+        "power_plant"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "firebase",
+        "patriot",
+        "power_plant"
+      ],
+      "units": [
+        "supply_truck"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Dual-Pat-Drop or Pat+FB-Drop SS/DS. Pats kill trucks / disable buildings. Mind eco + power.",
+    "sequence_steps_normalized": [
+      "Dual-Pat-Drop or Pat+FB-Drop"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_firebase",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "firebase",
+          "ideal_before": 115,
+          "hard_before": 180,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_patriot",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "patriot",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual-Pat-Drop or Pat+FB-Drop",
+      "description": "SS/DS. Vs China. Pats kill trucks / disable buildings. Mind eco + power.",
+      "line": "20. **Dual-Pat-Drop or Pat+FB-Drop** — SS/DS. Vs China. Pats kill trucks / disable buildings. Mind eco + power."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_021_normal_pat_drop",
+    "name": "Normal Pat-Drop",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 21,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "patriot",
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "patriot",
+        "supply_center"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Normal Pat-Drop DS. Situational; only if a drop catches him with just a supply there.",
+    "sequence_steps_normalized": [
+      "Normal Pat-Drop"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_patriot",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "patriot",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Normal Pat-Drop",
+      "description": "DS. Situational; only if a drop catches him with just a supply there.",
+      "line": "21. **Normal Pat-Drop** — DS. Situational; only if a drop catches him with just a supply there."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_022_firebase_md_drop_vs_af",
+    "name": "Firebase/MD-Drop vs AF",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 22,
+    "supply_opening": [
+      "single_supply",
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "drop"
+    ],
+    "matchup_targets": [
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "firebase"
+      ],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "firebase"
+      ],
+      "units": [
+        "comanche",
+        "dozer",
+        "king_raptor",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Firebase/MD-Drop vs AF SS/DS.",
+    "sequence_steps_normalized": [
+      "Firebase/MD-Drop vs AF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_firebase",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "firebase",
+          "ideal_before": 115,
+          "hard_before": 180,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_missile_defender",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_war_factory_contradiction",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "before": 100,
+          "penalty": 20,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Firebase/MD-Drop vs AF",
+      "description": "SS/DS. Vs AF that builds 2 adjacent AFs: drop a dozer to build a Firebase next to them to kill KRs; MDs counter Comanches.",
+      "line": "22. **Firebase/MD-Drop vs AF** — SS/DS. Vs AF that builds 2 adjacent AFs: drop a dozer to build a Firebase next to them to kill KRs; MDs counter Comanches."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_023_aa_bo_for_sw",
+    "name": "AA-BO for SW",
+    "faction": "usa",
+    "allowed_generals": [
+      "superweapon"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 23,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "fast_tech"
+    ],
+    "matchup_targets": [
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "patriot"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "bunker",
+        "patriot"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "AA-BO for SW DS. SW bunker with Patriots; fast tech then AA to win (lame but SW's style).",
+    "sequence_steps_normalized": [
+      "AA-BO for SW"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_patriot",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "patriot",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "inferred_fast_tech_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "AA-BO for SW",
+      "description": "DS. SW bunker with Patriots; fast tech then AA to win (lame but SW's style).",
+      "line": "23. **AA-BO for SW** — DS. SW bunker with Patriots; fast tech then AA to win (lame but SW's style)."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_024_raptor_bo_as_af",
+    "name": "Raptor BO (as AF)",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 24,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield"
+      ],
+      "units": [
+        "king_raptor"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "firebase"
+      ],
+      "units": [
+        "king_raptor"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "map_control"
+      ]
+    },
+    "signature_source_text": "Raptor BO (as AF) DS. Owns GLA when working.",
+    "sequence_steps_normalized": [
+      "Raptor BO (as AF)"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_airfield",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_king_raptor",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "king_raptor",
+          "ideal_before": 160,
+          "hard_before": 220,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_war_factory_contradiction",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "before": 100,
+          "penalty": 20,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Raptor BO (as AF)",
+      "description": "DS. Vs GLA: grab all flanking Techs, defend flanks with Firebases. Owns GLA when working.",
+      "line": "24. **Raptor BO (as AF)** — DS. Vs GLA: grab all flanking Techs, defend flanks with Firebases. Owns GLA when working."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_025_oil_grab_w_rax_af_and_wf",
+    "name": "Oil-Grab w/ Rax, AF and WF",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 25,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "air",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "war_factory"
+      ],
+      "units": [
+        "humvee",
+        "ranger"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "war_factory"
+      ],
+      "units": [
+        "humvee",
+        "ranger"
+      ],
+      "upgrades": [
+        "capture_building"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Oil-Grab w/ Rax, AF and WF SS. Best as AF. First Vee pressures/scouts; grab ≥1 oil with rangers.",
+    "sequence_steps_normalized": [
+      "Oil-Grab w/ Rax, AF and WF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_airfield",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_ranger",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "ranger",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 16,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_capture_building",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Oil-Grab w/ Rax, AF and WF",
+      "description": "SS. Best as AF. First Vee pressures/scouts; grab ≥1 oil with rangers. China is the bad matchup.",
+      "line": "25. **Oil-Grab w/ Rax, AF and WF** — SS. Best as AF. First Vee pressures/scouts; grab ≥1 oil with rangers. China is the bad matchup."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_026_fast_flashbangs_oil_later",
+    "name": "Fast Flashbangs, oil later",
+    "faction": "usa",
+    "allowed_generals": [
+      "infantry"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 26,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "vs_china"
+    ],
+    "normalized_signature": {
+      "buildings": [],
+      "units": [],
+      "upgrades": [
+        "flashbangs"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "power_plant"
+      ],
+      "units": [],
+      "upgrades": [
+        "flashbangs"
+      ],
+      "behaviors": [
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Fast Flashbangs, oil later DS. Get both oils + keep units out of base.",
+    "sequence_steps_normalized": [
+      "Fast Flashbangs, oil later"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_flashbangs",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "flashbangs",
+          "ideal_before": 125,
+          "hard_before": 190,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "capture_oil_signal",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 135,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Fast Flashbangs, oil later",
+      "description": "DS. Vs Infantry (flashbang power). Get both oils + keep units out of base.",
+      "line": "26. **Fast Flashbangs, oil later** — DS. Vs Infantry (flashbang power). Get both oils + keep units out of base."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_027_counter_to_china_front_supply",
+    "name": "Counter to China Front-Supply",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "Numbered USA build orders (1on1)",
+    "source_order": 27,
+    "supply_opening": [
+      "single_supply",
+      "dual_supply"
+    ],
+    "category": [
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "firebase",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "firebase",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "gattling_tank"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Counter to China Front-Supply SS/DS. Build Rax + WF (or Firebase instead of WF) in front. Downside: Gatts can enter base for Chinooks.",
+    "sequence_steps_normalized": [
+      "Counter to China Front-Supply"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_firebase",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "firebase",
+          "ideal_before": 115,
+          "hard_before": 180,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Counter to China Front-Supply",
+      "description": "SS/DS. Build Rax + WF (or Firebase instead of WF) in front. Downside: Gatts can enter base for Chinooks.",
+      "line": "27. **Counter to China Front-Supply** — SS/DS. Build Rax + WF (or Firebase instead of WF) in front. Downside: Gatts can enter base for Chinooks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_2v2_fast_rax_vs_gla_tunnels_normal_ds",
+    "name": "Fast Rax vs GLA tunnels (normal DS)",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "2v2",
+    "source_section": "USA team (2v2) build orders",
+    "source_order": 1,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop",
+      "dual_production",
+      "fast_tech",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "patriot",
+        "tunnel_network"
+      ],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Fast Rax vs GLA tunnels (normal DS) Fast Rax",
+    "sequence_steps_normalized": [
+      "Fast Rax vs GLA tunnels (normal DS)"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "inferred_fast_tech_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Fast Rax vs GLA tunnels (normal DS)",
+      "description": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech.",
+      "line": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_2v2_pat_drop",
+    "name": "Pat-Drop",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "2v2",
+    "source_section": "USA team (2v2) build orders",
+    "source_order": 2,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop",
+      "dual_production",
+      "fast_tech",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "patriot"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "patriot",
+        "tunnel_network"
+      ],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Pat-Drop Fast Rax",
+    "sequence_steps_normalized": [
+      "Pat-Drop"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_patriot",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "patriot",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        },
+        {
+          "id": "inferred_fast_tech_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Pat-Drop",
+      "description": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech.",
+      "line": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_2v2_normal_ds",
+    "name": "Normal DS",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "2v2",
+    "source_section": "USA team (2v2) build orders",
+    "source_order": 3,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop",
+      "dual_production",
+      "fast_tech",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "patriot",
+        "tunnel_network"
+      ],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Normal DS Fast Rax",
+    "sequence_steps_normalized": [
+      "Normal DS"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "inferred_fast_tech_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Normal DS",
+      "description": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech.",
+      "line": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_2v2_save_right_position",
+    "name": "Save right position",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "2v2",
+    "source_section": "USA team (2v2) build orders",
+    "source_order": 4,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop",
+      "dual_production",
+      "fast_tech",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "patriot",
+        "tunnel_network"
+      ],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Save right position Fast Rax",
+    "sequence_steps_normalized": [
+      "Save right position"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "inferred_fast_tech_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Save right position",
+      "description": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech.",
+      "line": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_2v2_md_drops",
+    "name": "MD-Drops",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "2v2",
+    "source_section": "USA team (2v2) build orders",
+    "source_order": 5,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop",
+      "dual_production",
+      "fast_tech",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks"
+      ],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "patriot",
+        "tunnel_network"
+      ],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "MD-Drops Fast Rax",
+    "sequence_steps_normalized": [
+      "MD-Drops"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_missile_defender",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        },
+        {
+          "id": "inferred_fast_tech_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "MD-Drops",
+      "description": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech.",
+      "line": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_2v2_dual_af",
+    "name": "Dual AF",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "2v2",
+    "source_section": "USA team (2v2) build orders",
+    "source_order": 6,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "air",
+      "drop",
+      "dual_production",
+      "fast_tech",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "barracks"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "patriot",
+        "tunnel_network"
+      ],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Dual AF Fast Rax",
+    "sequence_steps_normalized": [
+      "Dual AF"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "inferred_fast_tech_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_war_factory_contradiction",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "before": 100,
+          "penalty": 20,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dual AF",
+      "description": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech.",
+      "line": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_2v2_fast_tech",
+    "name": "Fast Tech",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "2v2",
+    "source_section": "USA team (2v2) build orders",
+    "source_order": 7,
+    "supply_opening": [
+      "dual_supply"
+    ],
+    "category": [
+      "drop",
+      "dual_production",
+      "fast_tech",
+      "map_control"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks"
+      ],
+      "units": [],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "patriot",
+        "tunnel_network"
+      ],
+      "units": [
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Fast Tech Fast Rax",
+    "sequence_steps_normalized": [
+      "Fast Tech"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "inferred_fast_tech_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 230,
+          "hard_before": 320,
+          "weight": 30,
+          "source": "generated_from_category"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Fast Tech",
+      "description": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech.",
+      "line": "Fast Rax vs GLA tunnels (normal DS) · Pat-Drop · Normal DS · Save right position · MD-Drops · Dual AF · Fast Tech."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_comanche_spam_af",
+    "name": "Comanche Spam (AF):",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force",
+      "stealth"
+    ],
+    "scope": "1v1",
+    "source_section": "USA explicit-sequence build orders (Tip #103, \"USA BOs\")",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "air"
+    ],
+    "matchup_targets": [
+      "vs_gla"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "power_plant",
+        "supply_center"
+      ],
+      "units": [
+        "chinook",
+        "comanche",
+        "dozer"
+      ],
+      "upgrades": [
+        "stealth_comanche"
+      ],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "power_plant",
+        "supply_center"
+      ],
+      "units": [
+        "chinook",
+        "comanche",
+        "dozer",
+        "worker"
+      ],
+      "upgrades": [
+        "stealth_comanche"
+      ],
+      "behaviors": []
+    },
+    "signature_source_text": "Comanche Spam (AF): Dozer1 → Power → Safe Supply (+2nd Chinook) → AF (Comanche). Dozer2 → 1 car then harass unsafe-supply workers. Dozer3 → Unsafe Supply (+2nd Chinook) → AF (Comanche). Stealth after 2nd–3rd Comanche; can run 2 dozers only.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Safe Supply (+2nd Chinook)",
+      "AF (Comanche)",
+      "Dozer2",
+      "1 car then harass unsafe-supply workers",
+      "Dozer3",
+      "Unsafe Supply (+2nd Chinook)",
+      "AF (Comanche)",
+      "Stealth after 2nd–3rd Comanche",
+      "can run 2 dozers only."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_airfield",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_chinook",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_comanche",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "comanche",
+          "ideal_before": 160,
+          "hard_before": 220,
+          "weight": 35,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_dozer",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_stealth_comanche",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "stealth_comanche",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 16,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [
+        {
+          "id": "early_war_factory_contradiction",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "before": 100,
+          "penalty": 20,
+          "source": "generated_contradiction"
+        }
+      ],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Comanche Spam (AF):",
+      "description": "Dozer1 → Power → Safe Supply (+2nd Chinook) → AF (Comanche). Dozer2 → 1 car then harass unsafe-supply workers. Dozer3 → Unsafe Supply (+2nd Chinook) → AF (Comanche). Stealth after 2nd–3rd Comanche; can run 2 dozers only.",
+      "line": "- **Comanche Spam (AF):** Dozer1 → Power → Safe Supply (+2nd Chinook) → AF (Comanche). Dozer2 → 1 car then harass unsafe-supply workers. Dozer3 → Unsafe Supply (+2nd Chinook) → AF (Comanche). Stealth after 2nd–3rd Comanche; can run 2 dozers only."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_3_md_fast_af",
+    "name": "3-MD fast (AF):",
+    "faction": "usa",
+    "allowed_generals": [
+      "air_force"
+    ],
+    "scope": "1v1",
+    "source_section": "USA explicit-sequence build orders (Tip #103, \"USA BOs\")",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "air",
+      "fast_tech"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "power_plant",
+        "strategy_center",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "airfield",
+        "barracks",
+        "power_plant",
+        "strategy_center",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": []
+    },
+    "signature_source_text": "3-MD fast (AF): Dozer1 → Power → Supply (+2nd Chinook) → Strategy Center (rear). Dozer2 → Barracks (rear) → War Factory (rear). 1 Vee + 3 MDs fast.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Supply (+2nd Chinook)",
+      "Strategy Center (rear)",
+      "Dozer2",
+      "Barracks (rear)",
+      "War Factory (rear)",
+      "1 Vee + 3 MDs fast."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_airfield",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "airfield",
+          "ideal_before": 120,
+          "hard_before": 170,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_strategy_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "strategy_center",
+          "ideal_before": 210,
+          "hard_before": 280,
+          "weight": 35,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_missile_defender",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "building_start",
+            "object": "strategy_center",
+            "before": 330
+          },
+          "max_score": 67
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "3-MD fast (AF):",
+      "description": "Dozer1 → Power → Supply (+2nd Chinook) → Strategy Center (rear). Dozer2 → Barracks (rear) → War Factory (rear). 1 Vee + 3 MDs fast.",
+      "line": "- **3-MD fast (AF):** Dozer1 → Power → Supply (+2nd Chinook) → Strategy Center (rear). Dozer2 → Barracks (rear) → War Factory (rear). 1 Vee + 3 MDs fast."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_towvee_spam_vusa_laser",
+    "name": "Towvee Spam (vUSA/Laser):",
+    "faction": "usa",
+    "allowed_generals": [
+      "infantry",
+      "laser",
+      "nuke",
+      "tank",
+      "vanilla_usa"
+    ],
+    "scope": "1v1",
+    "source_section": "USA explicit-sequence build orders (Tip #103, \"USA BOs\")",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "spam_rush"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [
+        "hellfire_drone",
+        "tow_missiles"
+      ],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [
+        "hellfire_drone",
+        "tow_missiles"
+      ],
+      "behaviors": []
+    },
+    "signature_source_text": "Towvee Spam (vUSA/Laser): Dozer1 → Power → Safe Supply (+2nd Chinook) → WF ASAP. Dozer2 → Unsafe Supply (2nd Supply) → WF. 2 Vees → TOW → Hellfire drones → spam.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Safe Supply (+2nd Chinook)",
+      "WF ASAP",
+      "Dozer2",
+      "Unsafe Supply (2nd Supply)",
+      "2 Vees",
+      "TOW",
+      "Hellfire drones",
+      "spam",
+      "Not vs Nuke/Tank/Infantry."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_chinook",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_humvee",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_hellfire_drone",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "hellfire_drone",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 10,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_tow_missiles",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "tow_missiles",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 16,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Towvee Spam (vUSA/Laser):",
+      "description": "Dozer1 → Power → Safe Supply (+2nd Chinook) → WF ASAP. Dozer2 → Unsafe Supply (2nd Supply) → WF. 2 Vees → TOW → Hellfire drones → spam. Not vs Nuke/Tank/Infantry.",
+      "line": "- **Towvee Spam (vUSA/Laser):** Dozer1 → Power → Safe Supply (+2nd Chinook) → WF ASAP. Dozer2 → Unsafe Supply (2nd Supply) → WF. 2 Vees → TOW → Hellfire drones → spam. Not vs Nuke/Tank/Infantry."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_laser_pat_tank_drop_laser",
+    "name": "Laser Pat/Tank Drop (Laser):",
+    "faction": "usa",
+    "allowed_generals": [
+      "laser",
+      "nuke",
+      "tank",
+      "vanilla_china"
+    ],
+    "scope": "1v1",
+    "source_section": "USA explicit-sequence build orders (Tip #103, \"USA BOs\")",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "drop"
+    ],
+    "matchup_targets": [
+      "vs_china",
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "patriot",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook"
+      ],
+      "upgrades": [
+        "power_plant_upgrade"
+      ],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "patriot",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook"
+      ],
+      "upgrades": [
+        "power_plant_upgrade"
+      ],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Laser Pat/Tank Drop (Laser): Dozer1 → Power(upgrade) → Unsafe Supply (no 2nd Chinook). Dozer2 → Safe Supply (+Chinook) → WF.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power(upgrade)",
+      "Unsafe Supply (no 2nd Chinook)",
+      "Dozer2",
+      "Safe Supply (+Chinook)",
+      "Only vs vChina/Tank/Nuke."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_patriot",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "patriot",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant_upgrade",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "power_plant_upgrade",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Laser Pat/Tank Drop (Laser):",
+      "description": "Dozer1 → Power(upgrade) → Unsafe Supply (no 2nd Chinook). Dozer2 → Safe Supply (+Chinook) → WF. Only vs vChina/Tank/Nuke.",
+      "line": "- **Laser Pat/Tank Drop (Laser):** Dozer1 → Power(upgrade) → Unsafe Supply (no 2nd Chinook). Dozer2 → Safe Supply (+Chinook) → WF. Only vs vChina/Tank/Nuke."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_combat_chinook_md_vusa_sw_variant",
+    "name": "Combat Chinook MD (vUSA; SW variant):",
+    "faction": "usa",
+    "allowed_generals": [
+      "superweapon",
+      "vanilla_usa"
+    ],
+    "scope": "1v1",
+    "source_section": "USA explicit-sequence build orders (Tip #103, \"USA BOs\")",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "air"
+    ],
+    "matchup_targets": [
+      "vs_usa"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "patriot",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "combat_chinook",
+        "humvee",
+        "missile_defender"
+      ],
+      "upgrades": [
+        "hellfire_drone"
+      ],
+      "behaviors": []
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "patriot",
+        "power_plant",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "combat_chinook",
+        "humvee",
+        "missile_defender"
+      ],
+      "upgrades": [
+        "hellfire_drone"
+      ],
+      "behaviors": []
+    },
+    "signature_source_text": "Combat Chinook MD (vUSA; SW variant): Dozer1 → Power → Supply Center (no extra Chinook) → WF. Dozer2 → Barracks (6 MDs). Build 2 Combat Chinooks (~$2400), sell WF, pump MDs (~6–7/Chinook). SW variant: Hellfire Vee + EMP Patriot to keep WF/Supply disabled.",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Supply Center (no extra Chinook)",
+      "Dozer2",
+      "Barracks (6 MDs)",
+      "Build 2 Combat Chinooks (~$2400), sell WF, pump MDs (~6–7/Chinook)",
+      "SW variant: Hellfire Vee + EMP Patriot to keep WF/Supply disabled."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_patriot",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "patriot",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 20,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_combat_chinook",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "combat_chinook",
+          "ideal_before": 160,
+          "hard_before": 220,
+          "weight": 35,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_6_missile_defender",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "count": 6,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_hellfire_drone",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "hellfire_drone",
+          "ideal_before": 180,
+          "hard_before": 250,
+          "weight": 10,
+          "source": "generated_from_name_and_note"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Combat Chinook MD (vUSA; SW variant):",
+      "description": "Dozer1 → Power → Supply Center (no extra Chinook) → WF. Dozer2 → Barracks (6 MDs). Build 2 Combat Chinooks (~$2400), sell WF, pump MDs (~6–7/Chinook). SW variant: Hellfire Vee + EMP Patriot to keep WF/Supply disabled.",
+      "line": "- **Combat Chinook MD (vUSA; SW variant):** Dozer1 → Power → Supply Center (no extra Chinook) → WF. Dozer2 → Barracks (6 MDs). Build 2 Combat Chinooks (~$2400), sell WF, pump MDs (~6–7/Chinook). SW variant: Hellfire Vee + EMP Patriot to keep WF/Supply disabled."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_dropping",
+    "name": "Dropping:",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "USA Mirror Build Order Guide (explicit)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "drop",
+      "forward_pressure"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "command_center",
+        "power_plant",
+        "supply_center"
+      ],
+      "units": [
+        "chinook",
+        "dozer",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop",
+        "forward_build"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "command_center",
+        "power_plant",
+        "supply_center"
+      ],
+      "units": [
+        "chinook",
+        "dozer",
+        "missile_defender"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop",
+        "forward_build"
+      ]
+    },
+    "signature_source_text": "Dropping: Dozer1 → Power. Dozer2 → Barracks just outside CC; then Dozer1 → Supply Center. Queue 4 MDs from Rax; load the Supply Center's Chinook with them and drop near enemy Supply Center to stop collection. (Don't drop too close to his dozer.)",
+    "sequence_steps_normalized": [
+      "Dozer1",
+      "Power",
+      "Dozer2",
+      "Barracks just outside CC",
+      "then Dozer1",
+      "Supply Center",
+      "Queue 4 MDs from Rax",
+      "load the Supply Center's Chinook with them and drop near enemy Supply Center to stop collection",
+      "(Don't drop too close to his dozer.)"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_barracks",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_command_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "command_center",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_power_plant",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "power_plant",
+          "ideal_before": 25,
+          "hard_before": 45,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_4_missile_defender",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "missile_defender",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 22,
+          "count": 4,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        },
+        {
+          "id": "forward_building_placement",
+          "type": "location_region",
+          "region": "forward_or_middle",
+          "ideal_before": 110,
+          "hard_before": 170,
+          "weight": 15,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Dropping:",
+      "description": "Dozer1 → Power. Dozer2 → Barracks just outside CC; then Dozer1 → Supply Center. Queue 4 MDs from Rax; load the Supply Center's Chinook with them and drop near enemy Supply Center to stop collection. (Don't drop too close to his dozer.)",
+      "line": "- **Dropping:** Dozer1 → Power. Dozer2 → Barracks just outside CC; then Dozer1 → Supply Center. Queue 4 MDs from Rax; load the Supply Center's Chinook with them and drop near enemy Supply Center to stop collection. (Don't drop too close to his dozer.)"
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_post_drop_dual_supply",
+    "name": "Post-drop, Dual Supply:",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "USA Mirror Build Order Guide (explicit)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "drop",
+      "dual_production"
+    ],
+    "matchup_targets": [
+      "mirror"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "dozer"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "dozer"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Post-drop, Dual Supply: 2nd Dozer → unsafe supply → Supply Center (+extra Chinook) → War Factory when affordable. Mirror his base; press your drop's eco lead.",
+    "sequence_steps_normalized": [
+      "2nd Dozer",
+      "unsafe supply",
+      "Supply Center (+extra Chinook)",
+      "War Factory when affordable",
+      "Mirror his base",
+      "press your drop's eco lead."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_dozer",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "dozer",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 5,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Post-drop, Dual Supply:",
+      "description": "2nd Dozer → unsafe supply → Supply Center (+extra Chinook) → War Factory when affordable. Mirror his base; press your drop's eco lead.",
+      "line": "- **Post-drop, Dual Supply:** 2nd Dozer → unsafe supply → Supply Center (+extra Chinook) → War Factory when affordable. Mirror his base; press your drop's eco lead."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_post_drop_single_supply",
+    "name": "Post-drop, Single Supply:",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "USA Mirror Build Order Guide (explicit)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "drop"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Post-drop, Single Supply: instead of 2nd supply build a WF for a quick Humvee; queue +2 Chinooks; use the drop Chinook to gather from secondary supply. Aim to finish early.",
+    "sequence_steps_normalized": [
+      "Post-drop, Single Supply"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_chinook",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Post-drop, Single Supply:",
+      "description": "instead of 2nd supply build a WF for a quick Humvee; queue +2 Chinooks; use the drop Chinook to gather from secondary supply. Aim to finish early.",
+      "line": "- **Post-drop, Single Supply:** instead of 2nd supply build a WF for a quick Humvee; queue +2 Chinooks; use the drop Chinook to gather from secondary supply. Aim to finish early."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_counter_drop_while_dropping",
+    "name": "Counter-drop while dropping:",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "USA Mirror Build Order Guide (explicit)",
+    "source_order": null,
+    "supply_opening": [
+      "single_supply"
+    ],
+    "category": [
+      "drop",
+      "dual_production",
+      "oil_grab"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "barracks",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop",
+        "oil_grab"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "barracks",
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop",
+        "oil_grab"
+      ]
+    },
+    "signature_source_text": "Counter-drop while dropping: go single supply + 3 Chinooks. Common follow-ups: **Dual Barracks** or **War Factory + Barracks** — clear his drop then push with Rockvees/more drops. Grab oils early with Dual Barracks.",
+    "sequence_steps_normalized": [
+      "Counter-drop while dropping"
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "count_before_2_barracks",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "barracks",
+          "ideal_before": 75,
+          "hard_before": 110,
+          "weight": 18,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_chinook",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_humvee",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        },
+        {
+          "id": "capture_oil_signal",
+          "type": "exists_before",
+          "event": "upgrade_start",
+          "object": "capture_building",
+          "ideal_before": 135,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Counter-drop while dropping:",
+      "description": "go single supply + 3 Chinooks. Common follow-ups: **Dual Barracks** or **War Factory + Barracks** — clear his drop then push with Rockvees/more drops. Grab oils early with Dual Barracks.",
+      "line": "- **Counter-drop while dropping:** go single supply + 3 Chinooks. Common follow-ups: **Dual Barracks** or **War Factory + Barracks** — clear his drop then push with Rockvees/more drops. Grab oils early with Dual Barracks."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  },
+  {
+    "id": "usa_1v1_counter_drop_when_not_dropping",
+    "name": "Counter-drop when not dropping:",
+    "faction": "usa",
+    "allowed_generals": [
+      "any"
+    ],
+    "scope": "1v1",
+    "source_section": "USA Mirror Build Order Guide (explicit)",
+    "source_order": null,
+    "supply_opening": [
+      "unknown"
+    ],
+    "category": [
+      "drop",
+      "dual_production",
+      "spam_rush"
+    ],
+    "matchup_targets": [
+      "any"
+    ],
+    "normalized_signature": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "mentioned_objects": {
+      "buildings": [
+        "supply_center",
+        "war_factory"
+      ],
+      "units": [
+        "chinook",
+        "humvee"
+      ],
+      "upgrades": [],
+      "behaviors": [
+        "drop"
+      ]
+    },
+    "signature_source_text": "Counter-drop when not dropping: Dual Supply → WF; temporarily surrender one supply until ~3 Humvees, then crush his dropped troops; return Chinooks and push.",
+    "sequence_steps_normalized": [
+      "Dual Supply",
+      "temporarily surrender one supply until ~3 Humvees",
+      "crush his dropped troops",
+      "return Chinooks and push."
+    ],
+    "detection": {
+      "opening_window_seconds": {
+        "start": 0,
+        "end": 300
+      },
+      "gates": [],
+      "positive_rules": [
+        {
+          "id": "exists_before_supply_center",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "ideal_before": 65,
+          "hard_before": 95,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_2_war_factory",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 145,
+          "weight": 30,
+          "count": 2,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 160,
+          "hard_before": 230,
+          "weight": 8,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "count_before_3_humvee",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "humvee",
+          "ideal_before": 140,
+          "hard_before": 195,
+          "weight": 32,
+          "count": 3,
+          "source": "generated_from_name_and_note"
+        },
+        {
+          "id": "early_drop_command",
+          "type": "location_or_transport_signal",
+          "behavior": "drop",
+          "ideal_before": 140,
+          "hard_before": 210,
+          "weight": 18,
+          "source": "generated_from_behavior"
+        }
+      ],
+      "negative_rules": [],
+      "caps": [
+        {
+          "if_missing": {
+            "type": "exists_before",
+            "event": "unit_start",
+            "object": "humvee",
+            "before": 230
+          },
+          "max_score": 68
+        }
+      ],
+      "thresholds": {
+        "detected": 70,
+        "possible": 55,
+        "ambiguous_margin": 10
+      }
+    },
+    "raw": {
+      "name": "Counter-drop when not dropping:",
+      "description": "Dual Supply → WF; temporarily surrender one supply until ~3 Humvees, then crush his dropped troops; return Chinooks and push.",
+      "line": "- **Counter-drop when not dropping:** Dual Supply → WF; temporarily surrender one supply until ~3 Humvees, then crush his dropped troops; return Chinooks and push."
+    },
+    "notes": [],
+    "enabled_for_detection": true
+  }
+]
