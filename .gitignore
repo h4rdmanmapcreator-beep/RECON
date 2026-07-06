@@ -9,3 +9,4 @@ graphify-out/
 # TypeScript build output
 detector/dist/
 detector/node_modules/
+detector/package-lock.json
