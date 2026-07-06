@@ -281,15 +281,15 @@
           "source": "generated_from_name_and_note"
         },
         {
-          "id": "count_before_3_laser_tank",
+          "id": "count_before_3_crusader_tank",
           "type": "count_before",
           "event": "unit_start",
-          "object": "laser_tank",
+          "object": "crusader_tank",
           "ideal_before": 145,
           "hard_before": 210,
           "weight": 28,
           "count": 3,
-          "source": "generated_from_name_and_note"
+          "source": "laser_tank normalizes to crusader_tank via general-prefix strip"
         },
         {
           "id": "count_before_3_paladin",
@@ -756,6 +756,48 @@
       "gates": [],
       "positive_rules": [
         {
+          "id": "exists_before_war_factory",
+          "type": "exists_before",
+          "event": "building_start",
+          "object": "war_factory",
+          "ideal_before": 100,
+          "hard_before": 155,
+          "weight": 12,
+          "source": "observable proxy for a tank drop (WF needed to build tanks)"
+        },
+        {
+          "id": "count_before_3_crusader_tank",
+          "type": "count_before",
+          "event": "unit_start",
+          "object": "crusader_tank",
+          "count": 3,
+          "ideal_before": 150,
+          "hard_before": 220,
+          "weight": 25,
+          "source": "observable proxy for a tank drop (mass Crusaders)"
+        },
+        {
+          "id": "exists_before_chinook",
+          "type": "exists_before",
+          "event": "unit_start",
+          "object": "chinook",
+          "ideal_before": 150,
+          "hard_before": 220,
+          "weight": 12,
+          "source": "observable proxy for the drop (Chinook transport)"
+        },
+        {
+          "id": "count_before_2_supply_center",
+          "type": "count_before",
+          "event": "building_start",
+          "object": "supply_center",
+          "count": 2,
+          "ideal_before": 90,
+          "hard_before": 150,
+          "weight": 6,
+          "source": "observable proxy for the dual-supply opening"
+        },
+        {
           "id": "early_drop_command",
           "type": "location_or_transport_signal",
           "behavior": "drop",
@@ -902,16 +944,6 @@
           "ideal_before": 160,
           "hard_before": 230,
           "weight": 5,
-          "source": "generated_from_name_and_note"
-        },
-        {
-          "id": "exists_before_laser_tank",
-          "type": "exists_before",
-          "event": "unit_start",
-          "object": "laser_tank",
-          "ideal_before": 145,
-          "hard_before": 210,
-          "weight": 28,
           "source": "generated_from_name_and_note"
         },
         {
@@ -1598,16 +1630,6 @@
           "ideal_before": 140,
           "hard_before": 195,
           "weight": 32,
-          "source": "generated_from_name_and_note"
-        },
-        {
-          "id": "exists_before_search_and_destroy",
-          "type": "exists_before",
-          "event": "upgrade_start",
-          "object": "search_and_destroy",
-          "ideal_before": 230,
-          "hard_before": 310,
-          "weight": 35,
           "source": "generated_from_name_and_note"
         },
         {

@@ -110,6 +110,7 @@ var generalPrefixes = []string{
 // used in tactic templates.  Unknown names are returned as-is so that any
 // tactic rules using the exact INI name still match.
 func canonicalObjectName(iniName string) string {
+	iniName = strings.TrimSpace(iniName)
 	for _, pfx := range generalPrefixes {
 		if strings.HasPrefix(iniName, pfx) {
 			iniName = iniName[len(pfx):]
@@ -125,15 +126,15 @@ func canonicalObjectName(iniName string) string {
 // objectNormMap maps base INI object names to canonical tactic-template names.
 var objectNormMap = map[string]string{
 	// ── China buildings ───────────────────────────────────────────────────────
-	"ChinaCommandCenter":           "command_center",
-	"ChinaSupplyCenter":            "supply_center",
-	"ChinaPowerPlant":              "power_plant",
-	"NukeReactor":                  "power_plant",
-	"ChinaBarracks":                "barracks",
-	"ChinaWarFactory":              "war_factory",
-	"ChinaAirfield":                "airfield",
-	"ChinaPropagandaCenter":        "propaganda_center",
-	"ChinaBunker":                  "bunker",
+	"ChinaCommandCenter":    "command_center",
+	"ChinaSupplyCenter":     "supply_center",
+	"ChinaPowerPlant":       "power_plant",
+	"NukeReactor":           "power_plant",
+	"ChinaBarracks":         "barracks",
+	"ChinaWarFactory":       "war_factory",
+	"ChinaAirfield":         "airfield",
+	"ChinaPropagandaCenter": "propaganda_center",
+	"ChinaBunker":           "bunker",
 	// ── China units ───────────────────────────────────────────────────────────
 	"ChinaVehicleDozer":            "dozer",
 	"ChinaVehicleSupplyTruck":      "supply_truck",
@@ -149,18 +150,21 @@ var objectNormMap = map[string]string{
 	"ChinaVehicleECMTank":          "ecm_tank",
 	"ChinaInfantryTankHunter":      "tank_hunter",
 	"ChinaInfantryRedGuard":        "red_guard",
+	"ChinaInfantryMiniGunner":      "minigunner",
 	// ── USA buildings ─────────────────────────────────────────────────────────
-	"AmericaCommandCenter":    "command_center",
-	"AmericaSupplyCenter":     "supply_center",
-	"AmericaPowerPlant":       "power_plant",
-	"AmericaBarracks":         "barracks",
-	"AmericaAirfield":         "airfield",
-	"AmericaStrategyCenter":   "strategy_center",
-	"AmericaPatriotBattery":   "patriot",
-	"AmericaFireBase":         "firebase",
+	"AmericaCommandCenter":  "command_center",
+	"AmericaSupplyCenter":   "supply_center",
+	"AmericaPowerPlant":     "power_plant",
+	"AmericaBarracks":       "barracks",
+	"AmericaAirfield":       "airfield",
+	"AmericaStrategyCenter": "strategy_center",
+	"AmericaPatriotBattery": "patriot",
+	"AmericaFireBase":       "firebase",
 	// ── USA units ─────────────────────────────────────────────────────────────
 	"AmericaVehicleDozer":            "dozer",
 	"AmericaVehicleHumvee":           "humvee",
+	"AmericaTankCrusader":            "crusader_tank",
+	"AmericaTankPaladin":             "paladin",
 	"AmericaVehiclePaladin":          "paladin",
 	"AmericaAircraftComanche":        "comanche",
 	"AmericaAircraftKingRaptor":      "king_raptor",
@@ -192,4 +196,16 @@ var objectNormMap = map[string]string{
 	"GLAVehicleAttackOutpost":      "attack_outpost",
 	"GLAVehicleAttackTroopCrawler": "attack_troop_crawler",
 	"GLAVehicleLotusAssassin":      "lotus",
+	// ── Upgrades ──────────────────────────────────────────────────────────────
+	// Upgrade order chunks (order code 1045) resolve to their INI Upgrade name.
+	// General-specific variants (AirF_/SupW_/Infa_ …) are stripped by
+	// canonicalObjectName before this lookup, so the keys carry no such prefix.
+	"Upgrade_AmericaTOWMissile":             "tow_missiles",
+	"Upgrade_AmericaRangerFlashBangGrenade": "flashbangs",
+	"Upgrade_AmericaHellfireDrone":          "hellfire_drone",
+	"Upgrade_StealthComanche":               "stealth_comanche",
+	"Upgrade_AmericaAdvancedControlRods":    "power_plant_upgrade",
+	"Upgrade_InfantryCaptureBuilding":       "capture_building",
+	"Upgrade_ChinaHelixBattleBunker":        "bunker_upgrade",
+	"Upgrade_ChinaOverlordBattleBunker":     "bunker_upgrade",
 }

@@ -73,8 +73,10 @@ function evalRule(r, ft) {
     case "sell_signal":                 return evalSellSignal(r, ft);
     case "location_region":
     case "location_or_transport_signal":
-      // No positional data in normalised events — skip silently
-      return { matched: false, points: 0, maxPoints: r.weight || 0, ev: "" };
+      // Normalised events carry no positional data, so these rules can never
+      // match. maxPoints must stay 0 or their weight would inflate the score
+      // denominator and cap the achievable confidence of the whole tactic.
+      return { matched: false, points: 0, maxPoints: 0, ev: "" };
     default:
       return { matched: false, points: 0, maxPoints: 0, ev: "" };
   }

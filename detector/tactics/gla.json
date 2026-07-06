@@ -494,9 +494,9 @@
       "line": "4. **Right + Left Flank** — DS. Vision on both flanks + middle after garrisoning. Flexible vs several armies."
     },
     "notes": [
-      "No strong object signals extracted automatically; requires manual rule tuning."
+      "Purely positional (flank garrisoning / map control) with no build-order signature; not detectable from normalized production events. Disabled until positional data is available."
     ],
-    "enabled_for_detection": true
+    "enabled_for_detection": false
   },
   {
     "id": "gla_1v1_005_oil_grab_delayed_tunnel_on_2nd_oil",

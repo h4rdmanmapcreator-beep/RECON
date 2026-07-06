@@ -251,8 +251,10 @@ function evaluateLocationRegion(
   rule: LocationRegionRule,
   _features: OpeningFeatures
 ): RuleResult {
-  // Positional data not available in normalized events — skip silently
-  return { matched: false, points: 0, maxPoints: rule.weight ?? 0 };
+  // Normalized events carry no positional data, so these rules can never match.
+  // maxPoints must stay 0 or their weight would inflate the score denominator
+  // and cap the achievable confidence of the whole tactic.
+  return { matched: false, points: 0, maxPoints: 0 };
 }
 
 // ── sell_signal ───────────────────────────────────────────────────────────────
